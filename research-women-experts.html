@@ -772,6 +772,46 @@
   /* ─── PANEL VISIBILITY ─── */
   #panel-ca2 { display: none; }
 
+  /* ─── JTBD ─── */
+  .jtbd-list { display: flex; flex-direction: column; gap: 10px; padding-top: 2px; }
+
+  .jtbd-item {
+    border: 1px solid rgba(124,106,247,0.2);
+    border-radius: 10px;
+    overflow: hidden;
+  }
+
+  .jtbd-context {
+    padding: 8px 14px;
+    font-size: 12.5px;
+    color: var(--text2);
+    background: rgba(124,106,247,0.06);
+    border-bottom: 1px solid rgba(124,106,247,0.12);
+  }
+
+  .jtbd-context::before {
+    content: '📍 ';
+    font-size: 11px;
+  }
+
+  .jtbd-job {
+    padding: 10px 14px;
+    font-size: 13.5px;
+    color: var(--text);
+    line-height: 1.55;
+  }
+
+  .jtbd-job em {
+    font-style: normal;
+    color: var(--accent2);
+    font-weight: 600;
+  }
+
+  .jtbd-job strong {
+    color: var(--accent3);
+    font-weight: 600;
+  }
+
   /* ─── MEANING MAPS ─── */
   .meaning-maps-section {
     max-width: 900px;
@@ -1901,12 +1941,21 @@
 
         <!-- Оффер -->
         <div class="mm-block offer">
-          <div class="mm-block-title"><span class="mm-icon">🎯</span> Формула оффера</div>
+          <div class="mm-block-title"><span class="mm-icon">💼</span> Jobs To Be Done</div>
           <div class="mm-block-content">
-            <div class="mm-offer-box">
-              <strong>Выстроим систему прогрева, после которой твои подписчики будут спрашивать «когда продажи?» — ещё до того, как ты откроешь корзину.</strong><br><br>
-              Без манипуляций. Без «продавать каждый день». Без ощущения, что навязываешься.<br>
-              Просто контент, выстроенный в правильную последовательность — под твою аудиторию и твой продукт.
+            <div class="jtbd-list">
+              <div class="jtbd-item">
+                <div class="jtbd-context">Когда готовится к запуску, а аудитория «холодная»</div>
+                <div class="jtbd-job">нанимает <em>прогрев</em>, чтобы <strong>к открытию продаж люди уже хотели купить — без уговоров и давления</strong></div>
+              </div>
+              <div class="jtbd-item">
+                <div class="jtbd-context">Когда публикует оффер и получает тишину</div>
+                <div class="jtbd-job">нанимает <em>систему прогрева</em>, чтобы <strong>превратить пассивных подписчиков в горячую очередь из покупателей</strong></div>
+              </div>
+              <div class="jtbd-item">
+                <div class="jtbd-context">Когда боится казаться навязчивой и продавать «в лоб»</div>
+                <div class="jtbd-job">нанимает <em>контентный прогрев</em>, чтобы <strong>продавать через ценность и доверие — экологично, без ощущения «впаривания»</strong></div>
+              </div>
             </div>
           </div>
         </div>
@@ -2040,12 +2089,21 @@
 
         <!-- Оффер -->
         <div class="mm-block offer">
-          <div class="mm-block-title"><span class="mm-icon">🎯</span> Формула оффера</div>
+          <div class="mm-block-title"><span class="mm-icon">💼</span> Jobs To Be Done</div>
           <div class="mm-block-content">
-            <div class="mm-offer-box">
-              <strong>Построим воронку, которая будет знакомить с тобой, прогревать и закрывать в покупку — без твоего участия.</strong><br><br>
-              Ты один раз вкладываешься в систему — она работает месяцами. Больше трафика = больше продаж.<br>
-              Без найма, без ручных переписок, без «когда же они купят».
+            <div class="jtbd-list">
+              <div class="jtbd-item">
+                <div class="jtbd-context">Когда трафик есть, а продаж нет</div>
+                <div class="jtbd-job">нанимает <em>продающую воронку</em>, чтобы <strong>каждый пришедший автоматически проходил путь до покупки — без ручных переписок</strong></div>
+              </div>
+              <div class="jtbd-item">
+                <div class="jtbd-context">Когда продаёт вручную и упирается в потолок времени</div>
+                <div class="jtbd-job">нанимает <em>воронку</em>, чтобы <strong>система продавала без её участия — больше трафика = больше денег, не больше работы</strong></div>
+              </div>
+              <div class="jtbd-item">
+                <div class="jtbd-context">Когда хочет предсказуемый доход, а не «иногда везёт»</div>
+                <div class="jtbd-job">нанимает <em>воронку под ключ</em>, чтобы <strong>знать: этот трафик даёт столько-то продаж — стабильно и без угадывания</strong></div>
+              </div>
             </div>
           </div>
         </div>
@@ -2179,12 +2237,21 @@
 
         <!-- Оффер -->
         <div class="mm-block offer">
-          <div class="mm-block-title"><span class="mm-icon">🎯</span> Формула оффера</div>
+          <div class="mm-block-title"><span class="mm-icon">💼</span> Jobs To Be Done</div>
           <div class="mm-block-content">
-            <div class="mm-offer-box">
-              <strong>Создадим стратегию контента, где каждый пост работает на продажу — и ты больше никогда не будешь сидеть с пустой головой перед телефоном.</strong><br><br>
-              Готовый сценарий на месяц: темы, форматы, цели каждого поста.<br>
-              Ты просто делаешь — система продаёт.
+            <div class="jtbd-list">
+              <div class="jtbd-item">
+                <div class="jtbd-context">Когда каждое утро мучительно думает что публиковать</div>
+                <div class="jtbd-job">нанимает <em>контент-план</em>, чтобы <strong>открыть телефон и уже знать — тему, формат, цель поста на сегодня</strong></div>
+              </div>
+              <div class="jtbd-item">
+                <div class="jtbd-context">Когда ведёт блог регулярно, но продаж нет</div>
+                <div class="jtbd-job">нанимает <em>стратегию контента</em>, чтобы <strong>каждый пост работал на конкретную цель: доверие, экспертность или продажу</strong></div>
+              </div>
+              <div class="jtbd-item">
+                <div class="jtbd-context">Когда выгорает от придумывания тем и форматов</div>
+                <div class="jtbd-job">нанимает <em>готовый сценарий</em>, чтобы <strong>освободить голову и тратить энергию на экспертизу, а не на «что написать в среду»</strong></div>
+              </div>
             </div>
           </div>
         </div>
@@ -2324,12 +2391,21 @@
 
         <!-- Оффер -->
         <div class="mm-block offer">
-          <div class="mm-block-title"><span class="mm-icon">🎯</span> Формула оффера</div>
+          <div class="mm-block-title"><span class="mm-icon">💼</span> Jobs To Be Done</div>
           <div class="mm-block-content">
-            <div class="mm-offer-box">
-              <strong>Сделаем карусели, которые останавливают скролл, строят экспертность и хочется рассматривать — как обложки, а не как посты.</strong><br><br>
-              Ты получаешь готовые слайды в своём стиле: структурированные, визуально сильные, с правильным хуком.<br>
-              Остаётся только опубликовать — всё остальное на нас.
+            <div class="jtbd-list">
+              <div class="jtbd-item">
+                <div class="jtbd-context">Когда хочет расти без рекламного бюджета</div>
+                <div class="jtbd-job">нанимает <em>посты-карусели</em>, чтобы <strong>контент сохраняли и пересылали — и новые подписчики приходили органически</strong></div>
+              </div>
+              <div class="jtbd-item">
+                <div class="jtbd-context">Когда хочет выглядеть как топ-эксперт, но не умеет делать красивые карусели</div>
+                <div class="jtbd-job">нанимает <em>готовые карусели под ключ</em>, чтобы <strong>визуальный уровень говорил о её экспертизе — стильно, узнаваемо, как обложка</strong></div>
+              </div>
+              <div class="jtbd-item">
+                <div class="jtbd-context">Когда тратит часы на дизайн и всё равно недовольна результатом</div>
+                <div class="jtbd-job">нанимает <em>создание каруселей</em>, чтобы <strong>просто опубликовать готовый контент — красивый, продуманный, в её стиле</strong></div>
+              </div>
             </div>
           </div>
         </div>
@@ -2483,12 +2559,21 @@
 
         <!-- Оффер -->
         <div class="mm-block offer">
-          <div class="mm-block-title"><span class="mm-icon">🎯</span> Формула оффера</div>
+          <div class="mm-block-title"><span class="mm-icon">💼</span> Jobs To Be Done</div>
           <div class="mm-block-content">
-            <div class="mm-offer-box">
-              <strong>Запустим таргет с ИИ агентом, который сам находит твою аудиторию, оптимизирует рекламу в реальном времени и снижает стоимость лида — пока ты занимаешься своим делом.</strong><br><br>
-              Никаких сливов бюджета вслепую. Никакого ручного мониторинга. Полная прозрачность — ты видишь каждую гривну и каждый результат.<br>
-              Система, которая с каждым днём работает лучше.
+            <div class="jtbd-list">
+              <div class="jtbd-item">
+                <div class="jtbd-context">Когда вкладывает деньги в рекламу и не видит отдачи</div>
+                <div class="jtbd-job">нанимает <em>таргет с ИИ агентом</em>, чтобы <strong>каждая вложенная гривна приносила платёжеспособных клиентов — прозрачно и предсказуемо</strong></div>
+              </div>
+              <div class="jtbd-item">
+                <div class="jtbd-context">Когда разочарована прошлыми таргетологами — шаблонно и без результата</div>
+                <div class="jtbd-job">нанимает <em>ИИ-систему</em>, чтобы <strong>получить точность, накопленные данные о своей аудитории и результат без зависимости от человеческого фактора</strong></div>
+              </div>
+              <div class="jtbd-item">
+                <div class="jtbd-context">Когда хочет масштабировать доход через платный трафик</div>
+                <div class="jtbd-job">нанимает <em>таргет с ИИ</em>, чтобы <strong>знать: больше бюджет = пропорционально больше клиентов — система оптимизируется сама</strong></div>
+              </div>
             </div>
           </div>
         </div>
@@ -2623,12 +2708,21 @@
 
         <!-- Оффер -->
         <div class="mm-block offer">
-          <div class="mm-block-title"><span class="mm-icon">🎯</span> Формула оффера</div>
+          <div class="mm-block-title"><span class="mm-icon">💼</span> Jobs To Be Done</div>
           <div class="mm-block-content">
-            <div class="mm-offer-box">
-              <strong>Создадим креативы, которые останавливают скролл визуалом, раскрывают твою уникальность — и при этом приводят клиентов.</strong><br><br>
-              Твой стиль, твоя упаковка, твоя энергия — и продающая логика внутри.<br>
-              Реклама, которой ты гордишься и которая работает.
+            <div class="jtbd-list">
+              <div class="jtbd-item">
+                <div class="jtbd-context">Когда реклама запущена, но объявления не останавливают скролл</div>
+                <div class="jtbd-job">нанимает <em>эффективные креативы</em>, чтобы <strong>снизить стоимость клика и получить больше клиентов на тот же бюджет</strong></div>
+              </div>
+              <div class="jtbd-item">
+                <div class="jtbd-context">Когда реклама выглядит безликой и не отражает её как эксперта</div>
+                <div class="jtbd-job">нанимает <em>стильные креативы</em>, чтобы <strong>первое касание с рекламой передавало её уровень, стиль и уникальность</strong></div>
+              </div>
+              <div class="jtbd-item">
+                <div class="jtbd-context">Когда хочет рекламу, которой сама гордится и которая работает</div>
+                <div class="jtbd-job">нанимает <em>креативы под ключ</em>, чтобы <strong>не выбирать между «красиво» и «продаёт» — получить и то, и другое в одном</strong></div>
+              </div>
             </div>
           </div>
         </div>
@@ -2763,12 +2857,21 @@
 
         <!-- Оффер -->
         <div class="mm-block offer">
-          <div class="mm-block-title"><span class="mm-icon">🎯</span> Формула оффера</div>
+          <div class="mm-block-title"><span class="mm-icon">💼</span> Jobs To Be Done</div>
           <div class="mm-block-content">
-            <div class="mm-offer-box">
-              <strong>Создадим посадочные страницы и сайты, которые отражают тебя как эксперта, говорят языком твоей аудитории и превращают трафик в заявки.</strong><br><br>
-              Под каждый продукт — своя посадочная страница. Под каждую воронку — свой сайт.<br>
-              Твой стиль, продающая структура и текст под боли клиента — быстро и точно под задачу.
+            <div class="jtbd-list">
+              <div class="jtbd-item">
+                <div class="jtbd-context">Когда ведёт трафик в профиль, но люди теряются и не оставляют заявки</div>
+                <div class="jtbd-job">нанимает <em>посадочную страницу</em>, чтобы <strong>каждый посетитель понял оффер и сделал целевое действие — без отвлечений и лишних шагов</strong></div>
+              </div>
+              <div class="jtbd-item">
+                <div class="jtbd-context">Когда хочет выглядеть серьёзным экспертом с первого касания</div>
+                <div class="jtbd-job">нанимает <em>сайт в своём стиле</em>, чтобы <strong>упаковка говорила о её уровне ещё до первого разговора — дорого, профессионально, с характером</strong></div>
+              </div>
+              <div class="jtbd-item">
+                <div class="jtbd-context">Когда запускает новый продукт или оффер</div>
+                <div class="jtbd-job">нанимает <em>отдельную посадочную</em>, чтобы <strong>быстро получить точку конверсии под конкретную боль — без переделки основного сайта</strong></div>
+              </div>
             </div>
           </div>
         </div>
@@ -2937,12 +3040,21 @@
 
         <!-- Оффер -->
         <div class="mm-block offer">
-          <div class="mm-block-title"><span class="mm-icon">🎯</span> Формула оффера</div>
+          <div class="mm-block-title"><span class="mm-icon">💼</span> Jobs To Be Done</div>
           <div class="mm-block-content">
-            <div class="mm-offer-box">
-              <strong>Построим воронку под твою задачу — Highlights, VSL, квиз, бот или комбинацию — где каждый человек проходит путь от первого касания до покупки.</strong><br><br>
-              Подберём формат под твой продукт и аудиторию. Любая сложность. Твой стиль. Автоматически.<br>
-              Ни один заинтересованный человек больше не уйдёт без следующего шага.
+            <div class="jtbd-list">
+              <div class="jtbd-item">
+                <div class="jtbd-context">Когда трафик есть, но люди уходят без следующего шага</div>
+                <div class="jtbd-job">нанимает <em>воронку под ключ</em>, чтобы <strong>каждый заинтересованный автоматически двигался от первого касания к покупке — по выстроенному пути</strong></div>
+              </div>
+              <div class="jtbd-item">
+                <div class="jtbd-context">Когда хочет вовлечь аудиторию и сегментировать по болям</div>
+                <div class="jtbd-job">нанимает <em>квиз-бот или интерактивный сценарий</em>, чтобы <strong>каждый получал персональный путь — и чувствовал что оффер создан именно для него</strong></div>
+              </div>
+              <div class="jtbd-item">
+                <div class="jtbd-context">Когда не знает какой формат воронки подходит её продукту</div>
+                <div class="jtbd-job">нанимает <em>экспертизу по воронкам</em>, чтобы <strong>получить правильный инструмент под свою задачу — Highlights, VSL, бот или комбинацию — без угадывания</strong></div>
+              </div>
             </div>
           </div>
         </div>
@@ -3083,12 +3195,21 @@
 
         <!-- Оффер -->
         <div class="mm-block offer">
-          <div class="mm-block-title"><span class="mm-icon">🎯</span> Формула оффера</div>
+          <div class="mm-block-title"><span class="mm-icon">💼</span> Jobs To Be Done</div>
           <div class="mm-block-content">
-            <div class="mm-offer-box">
-              <strong>Проведём запуск под ключ — стратегия, прогрев, реклама, воронка, продажи — и возьмём процент только от результата. Ты занимаешься экспертизой, мы отвечаем за цифры.</strong><br><br>
-              Никакого фиксированного бюджета на команду. Никакого хаоса. Никакого выгорания после.<br>
-              Только общий интерес — заработать как можно больше вместе.
+            <div class="jtbd-list">
+              <div class="jtbd-item">
+                <div class="jtbd-context">Когда хочет монетизировать экспертизу, но каждый запуск — хаос и стресс</div>
+                <div class="jtbd-job">нанимает <em>запуск под ключ</em>, чтобы <strong>сосредоточиться только на своём деле — пока команда строит систему продаж и доводит до результата</strong></div>
+              </div>
+              <div class="jtbd-item">
+                <div class="jtbd-context">Когда боится вкладывать деньги в команду без гарантий</div>
+                <div class="jtbd-job">нанимает <em>модель с процентом от продаж</em>, чтобы <strong>платить только за реальный результат — риск разделён, интересы совпадают</strong></div>
+              </div>
+              <div class="jtbd-item">
+                <div class="jtbd-context">Когда после каждого запуска выгорание вместо желания повторить</div>
+                <div class="jtbd-job">нанимает <em>системный запуск</em>, чтобы <strong>выйти из него с деньгами, кейсом и энергией — а не с ощущением что пережила марафон</strong></div>
+              </div>
             </div>
           </div>
         </div>
