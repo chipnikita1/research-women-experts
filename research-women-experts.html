@@ -1,0 +1,2626 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Исследование: Женщины-эксперты в Instagram, Украина — ЦА 1 + ЦА 2</title>
+<style>
+
+  :root {
+    --bg: #0d0d14;
+    --bg2: #13131f;
+    --bg3: #1a1a2e;
+    --card: #16162a;
+    --card2: #1e1e35;
+    --border: rgba(255,255,255,0.07);
+    --accent: #7c6af7;
+    --accent2: #a78bfa;
+    --accent3: #c4b5fd;
+    --pink: #f472b6;
+    --pink2: #ec4899;
+    --teal: #2dd4bf;
+    --yellow: #fbbf24;
+    --red: #f87171;
+    --green: #34d399;
+    --text: #e2e8f0;
+    --text2: #94a3b8;
+    --text3: #64748b;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    font-size: 15px;
+  }
+
+  /* ─── NAV ─── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    background: rgba(13,13,20,0.85);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border);
+    padding: 0 2rem;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  .nav-logo {
+    font-weight: 700;
+    font-size: 14px;
+    color: var(--accent2);
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .nav-logo span { color: var(--text3); font-weight: 400; }
+
+  .nav-links {
+    display: flex;
+    gap: 0;
+    list-style: none;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  .nav-links::-webkit-scrollbar { display: none; }
+
+  .nav-links a {
+    text-decoration: none;
+    color: var(--text3);
+    font-size: 13px;
+    padding: 8px 14px;
+    border-radius: 6px;
+    white-space: nowrap;
+    transition: all 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--text); background: var(--card2); }
+
+  .nav-badge {
+    margin-left: auto;
+    background: linear-gradient(135deg, var(--accent), var(--pink2));
+    color: white;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 4px 10px;
+    border-radius: 20px;
+    white-space: nowrap;
+  }
+
+  /* ─── LAYOUT ─── */
+  .page {
+    padding-top: 56px;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+
+  /* ─── HERO ─── */
+  .hero {
+    padding: 5rem 0 3rem;
+    position: relative;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -56px;
+    left: -2rem;
+    right: -2rem;
+    height: 400px;
+    background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(124,106,247,0.15) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(124,106,247,0.12);
+    border: 1px solid rgba(124,106,247,0.3);
+    color: var(--accent3);
+    font-size: 12px;
+    font-weight: 600;
+    padding: 5px 12px;
+    border-radius: 20px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+  }
+
+  .hero h1 {
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+    font-weight: 800;
+    line-height: 1.2;
+    letter-spacing: -0.5px;
+    margin-bottom: 1rem;
+    background: linear-gradient(135deg, #fff 30%, var(--accent3));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .hero-meta {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    margin-bottom: 2.5rem;
+  }
+
+  .hero-meta-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--text3);
+    font-size: 13px;
+  }
+
+  .hero-meta-item strong { color: var(--text2); }
+
+  .tldr {
+    background: linear-gradient(135deg, rgba(124,106,247,0.12), rgba(236,72,153,0.08));
+    border: 1px solid rgba(124,106,247,0.25);
+    border-radius: 16px;
+    padding: 2rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .tldr::before {
+    content: 'TL;DR';
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    color: var(--accent);
+    opacity: 0.5;
+  }
+
+  .tldr p {
+    color: var(--text);
+    font-size: 16px;
+    line-height: 1.7;
+  }
+
+  .tldr p strong { color: var(--accent3); }
+
+  /* ─── SECTION ─── */
+  section {
+    padding: 4rem 0 2rem;
+  }
+
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .section-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    flex-shrink: 0;
+  }
+
+  .icon-purple { background: rgba(124,106,247,0.15); }
+  .icon-pink   { background: rgba(244,114,182,0.15); }
+  .icon-teal   { background: rgba(45,212,191,0.15); }
+  .icon-yellow { background: rgba(251,191,36,0.15); }
+  .icon-red    { background: rgba(248,113,113,0.15); }
+  .icon-green  { background: rgba(52,211,153,0.15); }
+
+  .section-title {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--text);
+  }
+
+  .section-title .num {
+    color: var(--accent);
+    font-size: 0.9rem;
+    font-weight: 500;
+    display: block;
+    margin-bottom: 2px;
+  }
+
+  /* ─── PORTRAIT GRID ─── */
+  .portrait-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 1rem;
+  }
+
+  .portrait-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 1.25rem;
+    transition: border-color 0.2s, transform 0.2s;
+  }
+
+  .portrait-card:hover {
+    border-color: rgba(124,106,247,0.3);
+    transform: translateY(-2px);
+  }
+
+  .portrait-card .label {
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    color: var(--text3);
+    margin-bottom: 8px;
+  }
+
+  .portrait-card .value {
+    color: var(--text);
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  .tag-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 6px;
+  }
+
+  .tag {
+    background: var(--card2);
+    border: 1px solid var(--border);
+    color: var(--text2);
+    font-size: 12px;
+    padding: 3px 10px;
+    border-radius: 20px;
+  }
+
+  .tag.accent { background: rgba(124,106,247,0.12); border-color: rgba(124,106,247,0.25); color: var(--accent3); }
+  .tag.pink   { background: rgba(244,114,182,0.12); border-color: rgba(244,114,182,0.25); color: var(--pink); }
+  .tag.teal   { background: rgba(45,212,191,0.12);  border-color: rgba(45,212,191,0.25);  color: var(--teal); }
+
+  /* ─── PAINS ─── */
+  .pain-blocks {
+    display: grid;
+    gap: 1.25rem;
+  }
+
+  .pain-block {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    overflow: hidden;
+  }
+
+  .pain-block-header {
+    padding: 1rem 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+    user-select: none;
+    border-bottom: 1px solid transparent;
+    transition: background 0.2s;
+  }
+
+  .pain-block-header:hover { background: var(--card2); }
+
+  .pain-block.open .pain-block-header {
+    border-bottom-color: var(--border);
+    background: var(--card2);
+  }
+
+  .pain-block-num {
+    width: 28px;
+    height: 28px;
+    border-radius: 8px;
+    background: linear-gradient(135deg, var(--accent), var(--pink2));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: 700;
+    color: white;
+    flex-shrink: 0;
+  }
+
+  .pain-block-title {
+    font-weight: 600;
+    font-size: 15px;
+    color: var(--text);
+    flex: 1;
+  }
+
+  .pain-block-count {
+    font-size: 12px;
+    color: var(--text3);
+    background: var(--bg3);
+    padding: 2px 8px;
+    border-radius: 10px;
+  }
+
+  .pain-chevron {
+    color: var(--text3);
+    transition: transform 0.25s;
+    font-size: 12px;
+  }
+
+  .pain-block.open .pain-chevron { transform: rotate(180deg); }
+
+  .pain-block-body {
+    display: none;
+    padding: 1.25rem 1.5rem;
+    gap: 8px;
+  }
+
+  .pain-block.open .pain-block-body { display: flex; flex-direction: column; }
+
+  .quote {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+    background: var(--bg3);
+    border-radius: 10px;
+    padding: 10px 14px;
+    border-left: 3px solid transparent;
+    font-size: 14px;
+    color: var(--text2);
+    font-style: italic;
+    transition: border-color 0.2s;
+  }
+
+  .quote:hover { border-left-color: var(--accent); color: var(--text); }
+
+  .quote::before { content: '"'; color: var(--accent); font-size: 20px; line-height: 1; flex-shrink: 0; font-style: normal; }
+
+  /* ─── GAPS ─── */
+  .gaps-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 1.25rem;
+  }
+
+  .gap-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    position: relative;
+    overflow: hidden;
+    transition: border-color 0.2s, transform 0.2s;
+  }
+
+  .gap-card:hover {
+    border-color: rgba(124,106,247,0.3);
+    transform: translateY(-2px);
+  }
+
+  .gap-card::after {
+    content: '';
+    position: absolute;
+    top: 0; right: 0;
+    width: 120px; height: 120px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(124,106,247,0.06), transparent 70%);
+    pointer-events: none;
+  }
+
+  .gap-num {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+
+  .gap-title {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--text);
+    line-height: 1.3;
+  }
+
+  .gap-service {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(124,106,247,0.1);
+    border: 1px solid rgba(124,106,247,0.2);
+    color: var(--accent3);
+    font-size: 12px;
+    font-weight: 600;
+    padding: 4px 12px;
+    border-radius: 20px;
+  }
+
+  .gap-section { display: flex; flex-direction: column; gap: 6px; }
+  .gap-label { font-size: 11px; font-weight: 600; color: var(--text3); text-transform: uppercase; letter-spacing: 0.5px; }
+  .gap-text { font-size: 13px; color: var(--text2); line-height: 1.5; }
+
+  .highlight-box {
+    background: var(--bg3);
+    border-radius: 8px;
+    padding: 10px 14px;
+    font-size: 13px;
+    color: var(--text2);
+    border-left: 3px solid var(--teal);
+  }
+
+  .highlight-box strong { color: var(--teal); }
+
+  /* ─── QUERIES TABLE ─── */
+  .queries-grid {
+    display: grid;
+    gap: 1rem;
+  }
+
+  .query-row {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.25rem;
+    display: grid;
+    grid-template-columns: 140px 1fr;
+    gap: 1rem;
+    align-items: start;
+    transition: border-color 0.2s;
+  }
+
+  .query-row:hover { border-color: rgba(124,106,247,0.25); }
+
+  .query-category {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .cat-dot {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  .cat-label {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text2);
+  }
+
+  .query-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+
+  .q-tag {
+    background: var(--bg3);
+    border: 1px solid var(--border);
+    color: var(--text2);
+    font-size: 12px;
+    padding: 4px 12px;
+    border-radius: 20px;
+    transition: all 0.2s;
+    cursor: default;
+  }
+
+  .q-tag:hover { background: var(--card2); color: var(--text); border-color: rgba(124,106,247,0.3); }
+
+  /* ─── UKRAINE ─── */
+  .ukraine-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1rem;
+  }
+
+  .ukraine-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 1.25rem;
+    display: flex;
+    gap: 1rem;
+    transition: border-color 0.2s;
+  }
+
+  .ukraine-card:hover { border-color: rgba(45,212,191,0.3); }
+
+  .ukraine-icon {
+    width: 36px; height: 36px;
+    border-radius: 10px;
+    background: rgba(45,212,191,0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    flex-shrink: 0;
+  }
+
+  .ukraine-content .uc-title {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 4px;
+  }
+
+  .ukraine-content .uc-text {
+    font-size: 13px;
+    color: var(--text2);
+    line-height: 1.5;
+  }
+
+  /* ─── POSITIONING ─── */
+  .positioning-grid {
+    display: grid;
+    gap: 10px;
+  }
+
+  .pos-card {
+    background: linear-gradient(135deg, rgba(124,106,247,0.08), rgba(244,114,182,0.05));
+    border: 1px solid rgba(124,106,247,0.2);
+    border-radius: 12px;
+    padding: 1.1rem 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    transition: border-color 0.2s, transform 0.2s;
+  }
+
+  .pos-card:hover {
+    border-color: rgba(124,106,247,0.4);
+    transform: translateX(4px);
+  }
+
+  .pos-arrow {
+    color: var(--accent);
+    font-size: 18px;
+    flex-shrink: 0;
+  }
+
+  .pos-text {
+    font-size: 15px;
+    color: var(--text);
+    font-style: italic;
+    line-height: 1.4;
+  }
+
+  /* ─── DIVIDER ─── */
+  .divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--border), transparent);
+    margin: 0;
+  }
+
+  /* ─── FOOTER ─── */
+  footer {
+    padding: 3rem 0 2rem;
+    text-align: center;
+  }
+
+  .footer-sources {
+    text-align: left;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .footer-sources h4 {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text3);
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    margin-bottom: 1rem;
+  }
+
+  .source-list {
+    display: grid;
+    gap: 6px;
+  }
+
+  .source-list a {
+    color: var(--text3);
+    text-decoration: none;
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: color 0.2s;
+  }
+
+  .source-list a:hover { color: var(--accent3); }
+  .source-list a::before { content: '↗'; font-size: 10px; }
+
+  .footer-note {
+    color: var(--text3);
+    font-size: 12px;
+  }
+
+  /* ─── SCROLL INDICATOR ─── */
+  .scroll-top {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    width: 40px; height: 40px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: var(--text3);
+    text-decoration: none;
+    font-size: 16px;
+    transition: all 0.2s;
+    z-index: 99;
+  }
+
+  .scroll-top:hover {
+    background: var(--card2);
+    color: var(--accent3);
+    border-color: rgba(124,106,247,0.3);
+  }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 640px) {
+    .page { padding-left: 1rem; padding-right: 1rem; }
+    .query-row { grid-template-columns: 1fr; }
+    .nav-links { display: none; }
+    .gaps-grid { grid-template-columns: 1fr; }
+    .services-grid { grid-template-columns: 1fr; }
+  }
+
+
+  /* ─── CA TABS ─── */
+  .ca-tabs {
+    display: flex;
+    gap: 3px;
+    background: var(--bg3);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 3px;
+    flex-shrink: 0;
+  }
+
+  .ca-tab {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: transparent;
+    border: 1px solid transparent;
+    color: var(--text3);
+    font-size: 13px;
+    font-weight: 600;
+    padding: 6px 14px;
+    border-radius: 7px;
+    cursor: pointer;
+    transition: all 0.2s;
+    white-space: nowrap;
+    font-family: inherit;
+  }
+
+  .ca-tab:hover { color: var(--text2); background: var(--card); }
+
+  .ca-tab.active[data-ca="ca1"] {
+    background: linear-gradient(135deg, rgba(124,106,247,0.18), rgba(236,72,153,0.08));
+    color: var(--accent3);
+    border-color: rgba(124,106,247,0.35);
+  }
+
+  .ca-tab.active[data-ca="ca2"] {
+    background: linear-gradient(135deg, rgba(45,212,191,0.15), rgba(52,211,153,0.08));
+    color: var(--teal);
+    border-color: rgba(45,212,191,0.35);
+  }
+
+  .ca-tab-dot {
+    width: 7px; height: 7px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  .ca-tab[data-ca="ca1"] .ca-tab-dot { background: var(--accent2); }
+  .ca-tab[data-ca="ca2"] .ca-tab-dot { background: var(--teal); }
+  .ca-tab:not(.active) .ca-tab-dot   { opacity: 0.4; }
+
+  /* ─── CA2 HERO ─── */
+  .ca2-hero::before {
+    background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(45,212,191,0.15) 0%, transparent 70%) !important;
+  }
+
+  .ca2-h1 {
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+    font-weight: 800;
+    line-height: 1.2;
+    letter-spacing: -0.5px;
+    margin-bottom: 1rem;
+    background: linear-gradient(135deg, #fff 25%, var(--teal));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .ca2-tldr {
+    background: linear-gradient(135deg, rgba(45,212,191,0.1), rgba(52,211,153,0.06)) !important;
+    border-color: rgba(45,212,191,0.25) !important;
+  }
+
+  .ca2-tldr p strong { color: var(--teal) !important; }
+
+  .ca2-tldr::before { color: var(--teal) !important; }
+
+  /* ─── PANEL VISIBILITY ─── */
+  #panel-ca2 { display: none; }
+
+  /* ─── MEANING MAPS ─── */
+  .meaning-maps-section {
+    max-width: 900px;
+    margin: 0 auto 3rem;
+    padding: 0 2rem;
+  }
+
+  .meaning-maps-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 6px;
+  }
+
+  .meaning-maps-header h2 {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--text);
+  }
+
+  .meaning-maps-header .mm-badge {
+    background: linear-gradient(135deg, var(--accent), var(--pink2));
+    color: white;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 3px 10px;
+    border-radius: 20px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .meaning-maps-subtitle {
+    color: var(--text2);
+    font-size: 14px;
+    margin-bottom: 2rem;
+  }
+
+  /* Service meaning card */
+  .mm-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    overflow: hidden;
+    margin-bottom: 1.5rem;
+  }
+
+  .mm-card-header {
+    padding: 20px 24px;
+    background: linear-gradient(135deg, rgba(124,106,247,0.15), rgba(244,114,182,0.08));
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .mm-service-icon {
+    font-size: 24px;
+  }
+
+  .mm-service-name {
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--text);
+  }
+
+  .mm-service-tag {
+    margin-left: auto;
+    font-size: 11px;
+    color: var(--accent2);
+    background: rgba(124,106,247,0.12);
+    padding: 4px 10px;
+    border-radius: 20px;
+    border: 1px solid rgba(124,106,247,0.2);
+    white-space: nowrap;
+  }
+
+  .mm-card-body {
+    padding: 24px;
+    display: grid;
+    gap: 20px;
+  }
+
+  /* Sub-blocks */
+  .mm-block {
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+  }
+
+  .mm-block-title {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 16px;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+  }
+
+  .mm-block-title .mm-icon { font-size: 14px; }
+
+  .mm-block.pains .mm-block-title { background: rgba(248,113,113,0.12); color: var(--red); border-bottom: 1px solid rgba(248,113,113,0.2); }
+  .mm-block.desires .mm-block-title { background: rgba(52,211,153,0.1); color: var(--green); border-bottom: 1px solid rgba(52,211,153,0.2); }
+  .mm-block.meanings .mm-block-title { background: rgba(124,106,247,0.12); color: var(--accent2); border-bottom: 1px solid rgba(124,106,247,0.2); }
+  .mm-block.objections .mm-block-title { background: rgba(251,191,36,0.1); color: var(--yellow); border-bottom: 1px solid rgba(251,191,36,0.2); }
+  .mm-block.offer .mm-block-title { background: linear-gradient(135deg, rgba(124,106,247,0.15), rgba(45,212,191,0.1)); color: var(--accent3); border-bottom: 1px solid rgba(124,106,247,0.2); }
+
+  .mm-block-content { padding: 14px 16px; background: var(--bg2); }
+
+  /* Pain list */
+  .mm-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+
+  .mm-list li {
+    display: flex;
+    gap: 10px;
+    font-size: 13.5px;
+    color: var(--text2);
+    line-height: 1.5;
+    align-items: flex-start;
+  }
+
+  .mm-list li .dot {
+    min-width: 6px; height: 6px;
+    border-radius: 50%;
+    margin-top: 7px;
+    flex-shrink: 0;
+  }
+
+  .mm-block.pains .dot { background: var(--red); }
+  .mm-block.desires .dot { background: var(--green); }
+
+  .mm-list li strong { color: var(--text); font-weight: 600; }
+
+  /* Meaning items */
+  .mm-meanings-list { display: flex; flex-direction: column; gap: 12px; }
+
+  .mm-meaning-item {
+    border: 1px solid rgba(124,106,247,0.15);
+    border-radius: 10px;
+    overflow: hidden;
+  }
+
+  .mm-meaning-quote {
+    padding: 10px 14px;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text);
+    background: rgba(124,106,247,0.07);
+    border-bottom: 1px solid rgba(124,106,247,0.1);
+    display: flex;
+    gap: 8px;
+    align-items: flex-start;
+  }
+
+  .mm-meaning-quote .qnum {
+    min-width: 22px; height: 22px;
+    background: var(--accent);
+    border-radius: 6px;
+    font-size: 11px;
+    font-weight: 700;
+    color: white;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  .mm-meaning-desc {
+    padding: 10px 14px;
+    font-size: 13px;
+    color: var(--text2);
+    line-height: 1.55;
+    background: var(--bg2);
+  }
+
+  .mm-meaning-why {
+    padding: 7px 14px;
+    font-size: 12px;
+    color: var(--accent2);
+    background: rgba(124,106,247,0.06);
+    border-top: 1px solid rgba(124,106,247,0.1);
+  }
+
+  .mm-meaning-why strong { color: var(--accent2); }
+
+  /* Objections */
+  .mm-objections-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+
+  @media (max-width: 640px) { .mm-objections-grid { grid-template-columns: 1fr; } }
+
+  .mm-obj-card {
+    border: 1px solid rgba(251,191,36,0.15);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  .mm-obj-q {
+    padding: 8px 12px;
+    font-size: 12.5px;
+    color: var(--yellow);
+    background: rgba(251,191,36,0.07);
+    font-style: italic;
+    border-bottom: 1px solid rgba(251,191,36,0.12);
+  }
+
+  .mm-obj-a {
+    padding: 8px 12px;
+    font-size: 12.5px;
+    color: var(--text2);
+    line-height: 1.45;
+  }
+
+  /* Offer formula */
+  .mm-offer-box {
+    background: linear-gradient(135deg, rgba(124,106,247,0.1), rgba(45,212,191,0.07));
+    border: 1px solid rgba(124,106,247,0.25);
+    border-radius: 10px;
+    padding: 16px 18px;
+    font-size: 14px;
+    line-height: 1.7;
+    color: var(--text);
+    font-style: italic;
+  }
+
+  .mm-offer-box strong { color: var(--accent3); font-style: normal; }
+
+  /* ─── SERVICES ACCORDION ─── */
+  .services-section {
+    max-width: 900px;
+    margin: 0 auto 3rem;
+    padding: 0 2rem;
+  }
+
+  .services-section-title {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 6px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .services-section-title::before {
+    content: '⚙️';
+    font-size: 20px;
+  }
+
+  .services-section-subtitle {
+    color: var(--text2);
+    font-size: 14px;
+    margin-bottom: 1.5rem;
+  }
+
+  .accordion-item {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    margin-bottom: 10px;
+    overflow: hidden;
+    transition: border-color 0.2s;
+  }
+
+  .accordion-item:hover {
+    border-color: rgba(124,106,247,0.3);
+  }
+
+  .accordion-item.open {
+    border-color: rgba(124,106,247,0.5);
+  }
+
+  .accordion-trigger {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 18px 20px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    text-align: left;
+    color: var(--text);
+    font-size: 15px;
+    font-weight: 600;
+    transition: background 0.2s;
+  }
+
+  .accordion-trigger:hover {
+    background: var(--card2);
+  }
+
+  .accordion-num {
+    min-width: 28px;
+    height: 28px;
+    background: linear-gradient(135deg, var(--accent), var(--pink2));
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: 700;
+    color: white;
+  }
+
+  .accordion-pain {
+    flex: 1;
+  }
+
+  .accordion-pain .pain-label {
+    font-size: 11px;
+    color: var(--accent2);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 2px;
+  }
+
+  .accordion-pain .pain-title {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--text);
+  }
+
+  .accordion-arrow {
+    font-size: 18px;
+    color: var(--text3);
+    transition: transform 0.3s;
+    margin-left: auto;
+  }
+
+  .accordion-item.open .accordion-arrow {
+    transform: rotate(180deg);
+    color: var(--accent2);
+  }
+
+  .accordion-body {
+    display: none;
+    padding: 0 20px 18px 62px;
+    border-top: 1px solid var(--border);
+  }
+
+  .accordion-item.open .accordion-body {
+    display: block;
+  }
+
+  .accordion-services {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    padding-top: 14px;
+  }
+
+  .service-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--bg3);
+    border: 1px solid rgba(124,106,247,0.25);
+    color: var(--text);
+    font-size: 13px;
+    padding: 6px 14px;
+    border-radius: 20px;
+    transition: all 0.2s;
+  }
+
+  .service-pill::before {
+    content: '→';
+    color: var(--accent2);
+    font-size: 12px;
+  }
+
+  .service-pill:hover {
+    background: var(--card2);
+    border-color: var(--accent);
+    color: var(--accent3);
+  }
+
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">🔬 DeepResearch <span>/ Украина</span></div>
+
+  <div class="ca-tabs">
+    <button class="ca-tab active" data-ca="ca1" onclick="switchCA('ca1')">
+      <span class="ca-tab-dot"></span>ЦА 1 — Начинающие
+    </button>
+    <button class="ca-tab" data-ca="ca2" onclick="switchCA('ca2')">
+      <span class="ca-tab-dot"></span>ЦА 2 — Успешные
+    </button>
+  </div>
+
+  <ul class="nav-links" id="nav-ca1">
+    <li><a href="#portrait">Портрет ЦА</a></li>
+    <li><a href="#pains">Боли</a></li>
+    <li><a href="#gaps">Дыры в маркетинге</a></li>
+    <li><a href="#queries">Запросы</a></li>
+    <li><a href="#ukraine">Специфика UA</a></li>
+    <li><a href="#positioning">Позиционирование</a></li>
+    <li><a href="#services-ca1" style="color:var(--accent2)">Услуги</a></li>
+    <li><a href="#meaning-maps-ca1" style="color:var(--pink)">Смыслы</a></li>
+  </ul>
+
+  <ul class="nav-links" id="nav-ca2" style="display:none">
+    <li><a href="#ca2-portrait" style="color:var(--teal)">Портрет ЦА</a></li>
+    <li><a href="#ca2-pains" style="color:var(--teal)">Боли</a></li>
+    <li><a href="#ca2-gaps" style="color:var(--teal)">Дыры в системе</a></li>
+    <li><a href="#ca2-queries" style="color:var(--teal)">Запросы</a></li>
+    <li><a href="#ca2-ukraine" style="color:var(--teal)">Специфика UA</a></li>
+    <li><a href="#ca2-services" style="color:var(--teal)">Услуги</a></li>
+    <li><a href="#ca2-positioning" style="color:var(--teal)">Позиционирование</a></li>
+  </ul>
+
+  <div class="nav-badge" id="nav-badge">Май 2026</div>
+</nav>
+
+<div class="page">
+
+  <!-- ─── ПАНЕЛЬ ЦА 1 ─── -->
+  <div id="panel-ca1">
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-tag">📊 Маркетинговый ресёрч</div>
+    <h1>Женщины-эксперты<br>в Instagram, Украина</h1>
+    <div class="hero-meta">
+      <div class="hero-meta-item">📅 <strong>Май 2026</strong></div>
+      <div class="hero-meta-item">🇺🇦 <strong>Приоритет: Украина</strong></div>
+      <div class="hero-meta-item">📱 <strong>Платформа: Instagram</strong></div>
+      <div class="hero-meta-item">🎯 <strong>Таргет · Лендинги · Чат-боты</strong></div>
+    </div>
+    <div class="tldr">
+      <p>Украинские женщины-эксперты активно ведут Instagram, но <strong>80%+ застряли в одной точке: контент есть — продаж нет.</strong> Блог работает как дневник, а не как система продаж. Они не знают, где именно рвётся цепочка. <strong>Именно здесь — точки входа для ваших услуг.</strong></p>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- PORTRAIT -->
+  <section id="portrait">
+    <div class="section-header">
+      <div class="section-icon icon-purple">👤</div>
+      <div class="section-title">
+        <span class="num">Раздел 1</span>
+        Портрет целевой аудитории
+      </div>
+    </div>
+
+    <div class="portrait-grid">
+      <div class="portrait-card">
+        <div class="label">Кто она</div>
+        <div class="value">Женщина <strong>28–45 лет</strong>, эксперт в своей нише, активно ведёт Instagram-блог</div>
+      </div>
+      <div class="portrait-card">
+        <div class="label">Ниши</div>
+        <div class="tag-list">
+          <span class="tag">Психология</span>
+          <span class="tag">Нутрициология</span>
+          <span class="tag">Коучинг</span>
+          <span class="tag">Бьюти</span>
+          <span class="tag">Йога</span>
+          <span class="tag">Материнство</span>
+          <span class="tag">Финансы</span>
+          <span class="tag">Мода</span>
+          <span class="tag">Отношения</span>
+          <span class="tag">Бизнес</span>
+        </div>
+      </div>
+      <div class="portrait-card">
+        <div class="label">Что продаёт</div>
+        <div class="tag-list">
+          <span class="tag accent">Курсы</span>
+          <span class="tag accent">Марафоны</span>
+          <span class="tag accent">Консультации</span>
+          <span class="tag accent">Наставничество</span>
+          <span class="tag accent">Гайды</span>
+          <span class="tag accent">Интенсивы</span>
+        </div>
+      </div>
+      <div class="portrait-card">
+        <div class="label">Аудитория блога</div>
+        <div class="value"><strong>2k–50k</strong> подписчиков — микро и мидл-сегмент</div>
+      </div>
+      <div class="portrait-card">
+        <div class="label">Выручка в месяц</div>
+        <div class="value"><strong>$500–5000</strong> — нестабильно, от запуска к запуску</div>
+      </div>
+      <div class="portrait-card">
+        <div class="label">Боль рынка Украины</div>
+        <div class="value">Война → нестабильный доход ЦА, аудитория частично в Европе, платёжеспособность ниже — но <strong>онлайн-потребление выросло</strong></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- PAINS -->
+  <section id="pains">
+    <div class="section-header">
+      <div class="section-icon icon-red">🔴</div>
+      <div class="section-title">
+        <span class="num">Раздел 2</span>
+        Главные боли — их словами
+      </div>
+    </div>
+
+    <div class="pain-blocks">
+
+      <div class="pain-block open">
+        <div class="pain-block-header" onclick="this.parentElement.classList.toggle('open')">
+          <div class="pain-block-num">1</div>
+          <div class="pain-block-title">«Я пишу, а продаж нет»</div>
+          <div class="pain-block-count">7 цитат</div>
+          <div class="pain-chevron">▾</div>
+        </div>
+        <div class="pain-block-body">
+          <div class="quote">Веду блог 2 года, подписчики есть, а на курс никто не идёт</div>
+          <div class="quote">Публикую каждый день — охваты всё равно падают</div>
+          <div class="quote">Написала продающий пост — тишина. Ощущение, что кричу в пустоту</div>
+          <div class="quote">Сделала бесплатный марафон, набрала 500 человек — на курс пришли 3</div>
+          <div class="quote">Мои подписчики лайкают, но не покупают</div>
+          <div class="quote">Я знаю свою тему лучше всех, но конкурентки с меньшим опытом зарабатывают больше</div>
+          <div class="quote">Все говорят про контент-план, я его делаю — результата нет</div>
+        </div>
+      </div>
+
+      <div class="pain-block">
+        <div class="pain-block-header" onclick="this.parentElement.classList.toggle('open')">
+          <div class="pain-block-num">2</div>
+          <div class="pain-block-title">«Реклама — это больно и дорого»</div>
+          <div class="pain-block-count">7 цитат</div>
+          <div class="pain-chevron">▾</div>
+        </div>
+        <div class="pain-block-body">
+          <div class="quote">Запустила таргет — слила $300 и не получила ни одной продажи</div>
+          <div class="quote">Таргетолог взял деньги и исчез / сказал «аудитория не та»</div>
+          <div class="quote">Не понимаю, почему реклама дорогая, а заявок нет</div>
+          <div class="quote">Боюсь тратить на рекламу — не знаю, окупится ли</div>
+          <div class="quote">Рекламу настраиваю сама, но не понимаю цифры в рекламном кабинете</div>
+          <div class="quote">В Украине таргет работает по-другому, не знаю как правильно</div>
+          <div class="quote">Клиенты в Европе, Украине, США — не знаю как таргетировать</div>
+        </div>
+      </div>
+
+      <div class="pain-block">
+        <div class="pain-block-header" onclick="this.parentElement.classList.toggle('open')">
+          <div class="pain-block-num">3</div>
+          <div class="pain-block-title">«Запуск — это стресс и хаос»</div>
+          <div class="pain-block-count">6 цитат</div>
+          <div class="pain-chevron">▾</div>
+        </div>
+        <div class="pain-block-body">
+          <div class="quote">Каждый запуск делаю с нуля, всё вручную</div>
+          <div class="quote">Не знаю, когда запускать, как прогревать, сколько это должно длиться</div>
+          <div class="quote">Прогрев делаю наугад — иногда работает, чаще нет</div>
+          <div class="quote">После запуска выгораю на месяц — физически не могу повторить</div>
+          <div class="quote">Хочу делать запуски чаще, но сил нет на ещё один</div>
+          <div class="quote">Запуск прошёл хорошо, но я не понимаю, что именно сработало</div>
+        </div>
+      </div>
+
+      <div class="pain-block">
+        <div class="pain-block-header" onclick="this.parentElement.classList.toggle('open')">
+          <div class="pain-block-num">4</div>
+          <div class="pain-block-title">«Нет системы — всё держится на мне»</div>
+          <div class="pain-block-count">6 цитат</div>
+          <div class="pain-chevron">▾</div>
+        </div>
+        <div class="pain-block-body">
+          <div class="quote">Если я остановлюсь — продаж нет. Это не бизнес, это кабала</div>
+          <div class="quote">Всё делаю сама: пишу, снимаю, отвечаю, продаю</div>
+          <div class="quote">Хочу автоматизировать, но не знаю с чего начать</div>
+          <div class="quote">Нет воронки — есть только я с телефоном</div>
+          <div class="quote">Уехала в отпуск — всё встало</div>
+          <div class="quote">Отвечаю в директ по 3 часа в день, у меня нет на это времени</div>
+        </div>
+      </div>
+
+      <div class="pain-block">
+        <div class="pain-block-header" onclick="this.parentElement.classList.toggle('open')">
+          <div class="pain-block-num">5</div>
+          <div class="pain-block-title">«Не знаю, как упаковать себя»</div>
+          <div class="pain-block-count">6 цитат</div>
+          <div class="pain-chevron">▾</div>
+        </div>
+        <div class="pain-block-body">
+          <div class="quote">Я эксперт, но не умею продавать</div>
+          <div class="quote">Не понимаю, чем я отличаюсь от других — ниша перегружена</div>
+          <div class="quote">Написала о себе всё, а люди не понимают, чем я могу помочь</div>
+          <div class="quote">У меня нет нормального лендинга, кидаю людей в ссылку в шапке</div>
+          <div class="quote">Лендинг сделала сама на Tilda — стыдно показывать</div>
+          <div class="quote">Не знаю, куда вести трафик: в директ, на сайт или в бота</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- GAPS -->
+  <section id="gaps">
+    <div class="section-header">
+      <div class="section-icon icon-yellow">🕳️</div>
+      <div class="section-title">
+        <span class="num">Раздел 3</span>
+        Дыры в маркетинге — где теряют деньги
+      </div>
+    </div>
+
+    <div class="gaps-grid">
+
+      <div class="gap-card">
+        <div>
+          <div class="gap-num">Дыра 01</div>
+          <div class="gap-title">Нет воронки — трафик падает в никуда</div>
+        </div>
+        <div class="gap-service">🎯 Таргет + 🤖 Чат-бот + 📄 Лендинг</div>
+        <div class="gap-section">
+          <div class="gap-label">Что происходит</div>
+          <div class="gap-text">Реклама ведёт в директ или ссылку в биографии. Холодный человек должен сразу купить. Конверсия: <strong>0,5–2%</strong></div>
+        </div>
+        <div class="gap-section">
+          <div class="gap-label">Что делают</div>
+          <div class="gap-text">Реклама → подписка → надежда, что сам купит</div>
+        </div>
+        <div class="highlight-box"><strong>Решение:</strong> Реклама → лид-магнит/чат-бот → прогрев → продажа</div>
+      </div>
+
+      <div class="gap-card">
+        <div>
+          <div class="gap-num">Дыра 02</div>
+          <div class="gap-title">Таргет без стратегии — бюджет сгорает</div>
+        </div>
+        <div class="gap-service">🎯 Таргетированная реклама</div>
+        <div class="gap-section">
+          <div class="gap-label">Что происходит</div>
+          <div class="gap-text">Запускают рекламу «на подписчиков» без понимания цели. Нет A/B тестов, пикселя, ретаргетинга</div>
+        </div>
+        <div class="gap-section">
+          <div class="gap-label">Что говорят</div>
+          <div class="gap-text" style="font-style:italic; color: var(--text3)">«Таргет не работает» — хотя проблема в отсутствии стратегии</div>
+        </div>
+        <div class="highlight-box"><strong>Решение:</strong> Аудит → стратегия трафика → кампании с чёткой целью (лид-магнит / регистрация на вебинар)</div>
+      </div>
+
+      <div class="gap-card">
+        <div>
+          <div class="gap-num">Дыра 03</div>
+          <div class="gap-title">Лендинг как визитка — не продаёт</div>
+        </div>
+        <div class="gap-service">📄 Создание лендингов</div>
+        <div class="gap-section">
+          <div class="gap-label">Что происходит</div>
+          <div class="gap-text">Либо лендинга нет, либо самодельный без оффера, болей, отработки возражений и социального доказательства</div>
+        </div>
+        <div class="gap-section">
+          <div class="gap-label">Типичный результат</div>
+          <div class="gap-text">Конверсия <strong>1–3%</strong> вместо возможных <strong>8–15%</strong> для тёплой аудитории</div>
+        </div>
+        <div class="highlight-box"><strong>Решение:</strong> Продающий лендинг под конкретный инфопродукт, адаптированный под украинскую ЦА</div>
+      </div>
+
+      <div class="gap-card">
+        <div>
+          <div class="gap-num">Дыра 04</div>
+          <div class="gap-title">Директ вручную — клиенты уходят ночью</div>
+        </div>
+        <div class="gap-service">🤖 Чат-боты</div>
+        <div class="gap-section">
+          <div class="gap-label">Что происходит</div>
+          <div class="gap-text">Все заявки обрабатываются вручную. Написали в 22:00 — ответа нет. Отвечать на FAQ: <strong>2–4 часа в день</strong></div>
+        </div>
+        <div class="gap-section">
+          <div class="gap-label">Типичный сценарий</div>
+          <div class="gap-text" style="font-style:italic; color: var(--text3)">Написал в директ → ответ через 6 часов → уже купил у другой</div>
+        </div>
+        <div class="highlight-box"><strong>Решение:</strong> Чат-бот в директе: квалифицирует, отвечает на FAQ, даёт лид-магнит, отправляет ссылку на оплату — <strong>24/7</strong></div>
+      </div>
+
+      <div class="gap-card">
+        <div>
+          <div class="gap-num">Дыра 05</div>
+          <div class="gap-title">Нет прогрева — 70% лидов теряются</div>
+        </div>
+        <div class="gap-service">🎯 Таргет + 🤖 Авто­воронка</div>
+        <div class="gap-section">
+          <div class="gap-label">Что происходит</div>
+          <div class="gap-text">Прогрев только «живой» — эксперт в сторис. Нет автоматической цепочки касаний для новых подписчиков</div>
+        </div>
+        <div class="gap-section">
+          <div class="gap-label">Упущенные деньги</div>
+          <div class="gap-text"><strong>70% лидов</strong>, которые не купили сразу, забываются и никогда не возвращаются</div>
+        </div>
+        <div class="highlight-box"><strong>Решение:</strong> Автоворонка в чат-боте: прогрев серией сообщений → предложение с дедлайном</div>
+      </div>
+
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- QUERIES -->
+  <section id="queries">
+    <div class="section-header">
+      <div class="section-icon icon-teal">💬</div>
+      <div class="section-title">
+        <span class="num">Раздел 4</span>
+        Как они ищут вашу услугу — реальные запросы
+      </div>
+    </div>
+
+    <div class="queries-grid">
+
+      <div class="query-row">
+        <div class="query-category">
+          <div class="cat-dot" style="background: var(--accent)"></div>
+          <div class="cat-label">🎯 Таргет</div>
+        </div>
+        <div class="query-tags">
+          <span class="q-tag">таргетолог для эксперта</span>
+          <span class="q-tag">настроить рекламу инстаграм украина</span>
+          <span class="q-tag">таргет для курса</span>
+          <span class="q-tag">таргет для коуча</span>
+          <span class="q-tag">реклама инфопродукта</span>
+          <span class="q-tag">таргет окупился</span>
+          <span class="q-tag">настроить рекламу Meta</span>
+        </div>
+      </div>
+
+      <div class="query-row">
+        <div class="query-category">
+          <div class="cat-dot" style="background: var(--pink)"></div>
+          <div class="cat-label">📄 Лендинг</div>
+        </div>
+        <div class="query-tags">
+          <span class="q-tag">сделать лендинг для курса</span>
+          <span class="q-tag">лендинг для эксперта под ключ</span>
+          <span class="q-tag">продающий лендинг инфобизнес</span>
+          <span class="q-tag">страница продажи курса</span>
+          <span class="q-tag">лендинг для консультаций</span>
+        </div>
+      </div>
+
+      <div class="query-row">
+        <div class="query-category">
+          <div class="cat-dot" style="background: var(--teal)"></div>
+          <div class="cat-label">🤖 Чат-бот</div>
+        </div>
+        <div class="query-tags">
+          <span class="q-tag">чат-бот для инстаграм директ</span>
+          <span class="q-tag">автоответ в директ</span>
+          <span class="q-tag">бот для сбора заявок</span>
+          <span class="q-tag">автоматизация директа</span>
+          <span class="q-tag">чат-бот для продажи курса</span>
+          <span class="q-tag">автоворонка в телеграм</span>
+        </div>
+      </div>
+
+      <div class="query-row">
+        <div class="query-category">
+          <div class="cat-dot" style="background: var(--yellow)"></div>
+          <div class="cat-label">⚙️ Система</div>
+        </div>
+        <div class="query-tags">
+          <span class="q-tag">как автоматизировать продажи в инстаграм</span>
+          <span class="q-tag">воронка продаж для эксперта</span>
+          <span class="q-tag">как продавать курсы не вручную</span>
+          <span class="q-tag">система продаж для эксперта</span>
+          <span class="q-tag">связка таргет + лендинг + бот</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- UKRAINE -->
+  <section id="ukraine">
+    <div class="section-header">
+      <div class="section-icon icon-teal">🇺🇦</div>
+      <div class="section-title">
+        <span class="num">Раздел 5</span>
+        Специфика украинского рынка
+      </div>
+    </div>
+
+    <div class="ukraine-grid">
+
+      <div class="ukraine-card">
+        <div class="ukraine-icon">⚔️</div>
+        <div class="ukraine-content">
+          <div class="uc-title">Война</div>
+          <div class="uc-text">Аудитория нестабильная — эксперт хочет систему, которая работает даже при форс-мажоре и без постоянного присутствия</div>
+        </div>
+      </div>
+
+      <div class="ukraine-card">
+        <div class="ukraine-icon">✈️</div>
+        <div class="ukraine-content">
+          <div class="uc-title">Диаспора</div>
+          <div class="uc-text">Часть ЦА эксперта уехала в Европу → нужны лендинги и таргет сразу на несколько гео (UA, PL, DE, CZ)</div>
+        </div>
+      </div>
+
+      <div class="ukraine-card">
+        <div class="ukraine-icon">💳</div>
+        <div class="ukraine-content">
+          <div class="uc-title">Валюта</div>
+          <div class="uc-text">Работают в гривне, евро, долларе → лендинги и боты должны поддерживать разные способы оплаты и валюты</div>
+        </div>
+      </div>
+
+      <div class="ukraine-card">
+        <div class="ukraine-icon">📱</div>
+        <div class="ukraine-content">
+          <div class="uc-title">Платформы</div>
+          <div class="uc-text">Instagram + Telegram — основной стек. Facebook менее актуален. Viber используется реже, но есть</div>
+        </div>
+      </div>
+
+      <div class="ukraine-card">
+        <div class="ukraine-icon">🛡️</div>
+        <div class="ukraine-content">
+          <div class="uc-title">Доверие</div>
+          <div class="uc-text">После опыта с мошенниками-таргетологами — хотят кейсы, отзывы и чёткие гарантии результата, а не красивые слова</div>
+        </div>
+      </div>
+
+      <div class="ukraine-card">
+        <div class="ukraine-icon">🇺🇦</div>
+        <div class="ukraine-content">
+          <div class="uc-title">Язык</div>
+          <div class="uc-text">Украинский и русский контент в блоге → лендинги и боты должны быть на украинском языке (тренд усиливается)</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- POSITIONING -->
+  <section id="positioning">
+    <div class="section-header">
+      <div class="section-icon icon-green">🎯</div>
+      <div class="section-title">
+        <span class="num">Раздел 6</span>
+        Как позиционировать ваши услуги
+      </div>
+    </div>
+
+    <div class="positioning-grid">
+      <div class="pos-card">
+        <div class="pos-arrow">→</div>
+        <div class="pos-text">«Сделаем так, чтобы блог зарабатывал, даже когда ты не в телефоне»</div>
+      </div>
+      <div class="pos-card">
+        <div class="pos-arrow">→</div>
+        <div class="pos-text">«Вместо ручных продаж — система: реклама → бот → лендинг → оплата»</div>
+      </div>
+      <div class="pos-card">
+        <div class="pos-arrow">→</div>
+        <div class="pos-text">«Таргет, который окупается: настраиваем под твою аудиторию в Украине и Европе»</div>
+      </div>
+      <div class="pos-card">
+        <div class="pos-arrow">→</div>
+        <div class="pos-text">«Лендинг, который продаёт вместо тебя — пока ты снимаешь контент»</div>
+      </div>
+      <div class="pos-card">
+        <div class="pos-arrow">→</div>
+        <div class="pos-text">«Автоматизируем директ: бот отвечает, квалифицирует и закрывает в продажу — 24/7»</div>
+      </div>
+      <div class="pos-card">
+        <div class="pos-arrow">→</div>
+        <div class="pos-text">«Строим систему, которая работает при отключении света, форс-мажоре и в отпуске»</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── УСЛУГИ ПО БОЛЯМ ЦА 1 ─── -->
+  <section id="services-ca1" class="services-section">
+    <div class="services-section-title">Что мы внедряем</div>
+    <div class="services-section-subtitle">Услуги, подобранные под боли ЦА 1 — нажмите на боль, чтобы увидеть решения</div>
+
+    <!-- 1 -->
+    <div class="accordion-item">
+      <button class="accordion-trigger" onclick="toggleAccordion(this)">
+        <div class="accordion-num">1</div>
+        <div class="accordion-pain">
+          <div class="pain-label">Боль</div>
+          <div class="pain-title">Делают контент — нет продаж</div>
+        </div>
+        <div class="accordion-arrow">▾</div>
+      </button>
+      <div class="accordion-body">
+        <div class="accordion-services">
+          <span class="service-pill">Прогрев аудитории к эксперту</span>
+          <span class="service-pill">Продающие воронки</span>
+          <span class="service-pill">Сценарии контента, контент-план</span>
+          <span class="service-pill">Создание постов-каруселей</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2 -->
+    <div class="accordion-item">
+      <button class="accordion-trigger" onclick="toggleAccordion(this)">
+        <div class="accordion-num">2</div>
+        <div class="accordion-pain">
+          <div class="pain-label">Боль</div>
+          <div class="pain-title">Реклама не работает</div>
+        </div>
+        <div class="accordion-arrow">▾</div>
+      </button>
+      <div class="accordion-body">
+        <div class="accordion-services">
+          <span class="service-pill">Таргет с ИИ</span>
+          <span class="service-pill">Эффективные креативы</span>
+          <span class="service-pill">Посадочные страницы</span>
+          <span class="service-pill">Воронки, чат-боты</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3 -->
+    <div class="accordion-item">
+      <button class="accordion-trigger" onclick="toggleAccordion(this)">
+        <div class="accordion-num">3</div>
+        <div class="accordion-pain">
+          <div class="pain-label">Боль</div>
+          <div class="pain-title">Запуски — это стресс и хаос</div>
+        </div>
+        <div class="accordion-arrow">▾</div>
+      </button>
+      <div class="accordion-body">
+        <div class="accordion-services">
+          <span class="service-pill">Запуски под ключ с процентом от продаж</span>
+          <span class="service-pill">Системы под запуски (ИИ-менеджер, трафик, воронки, прогрев, анализ ЦА и рынка, продукты по подписке)</span>
+          <span class="service-pill">Стратегии запуска</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 4 -->
+    <div class="accordion-item">
+      <button class="accordion-trigger" onclick="toggleAccordion(this)">
+        <div class="accordion-num">4</div>
+        <div class="accordion-pain">
+          <div class="pain-label">Боль</div>
+          <div class="pain-title">Нет системы — всё на эксперте</div>
+        </div>
+        <div class="accordion-arrow">▾</div>
+      </button>
+      <div class="accordion-body">
+        <div class="accordion-services">
+          <span class="service-pill">Автоматическая продажа мини-продуктов</span>
+          <span class="service-pill">Автоматизация постинга и контента</span>
+          <span class="service-pill">ИИ-менеджер по продажам</span>
+          <span class="service-pill">Подключение платёжек. Продукты по подписке</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 5 -->
+    <div class="accordion-item">
+      <button class="accordion-trigger" onclick="toggleAccordion(this)">
+        <div class="accordion-num">5</div>
+        <div class="accordion-pain">
+          <div class="pain-label">Боль</div>
+          <div class="pain-title">Не знаю, как упаковать себя</div>
+        </div>
+        <div class="accordion-arrow">▾</div>
+      </button>
+      <div class="accordion-body">
+        <div class="accordion-services">
+          <span class="service-pill">Стратегия продвижения (упаковка, УТП, позиционирование, форматы контента, продуктовая линейка)</span>
+          <span class="service-pill">Упаковка профиля</span>
+          <span class="service-pill">Сайты индивидуального стиля</span>
+          <span class="service-pill">Боты индивидуального стиля</span>
+          <span class="service-pill">Упаковка бизнеса под ключ</span>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ─── СМЫСЛОВЫЕ КАРТЫ ─── -->
+  <section id="meaning-maps-ca1" class="meaning-maps-section">
+
+    <div class="meaning-maps-header">
+      <h2>Смысловые карты</h2>
+      <span class="mm-badge">ЦА 1</span>
+    </div>
+    <div class="meaning-maps-subtitle">Смыслы для офферов, посадочных страниц, контента и рекламы — по каждой услуге</div>
+
+    <!-- ══ КАРТА 1: Прогрев ══ -->
+    <div class="mm-card">
+      <div class="mm-card-header">
+        <span class="mm-service-icon">🔥</span>
+        <span class="mm-service-name">Прогрев аудитории к эксперту и его продукту</span>
+        <span class="mm-service-tag">Делают контент — нет продаж</span>
+      </div>
+      <div class="mm-card-body">
+
+        <!-- Боли -->
+        <div class="mm-block pains">
+          <div class="mm-block-title"><span class="mm-icon">🔴</span> Боли, которые мы закрываем</div>
+          <div class="mm-block-content">
+            <ul class="mm-list">
+              <li><span class="dot"></span><div><strong>Продажи «в пустоту»</strong> — выкладывает контент, объявляет продукт — тишина. Ноль продаж или 1–2 от самых лояльных.</div></li>
+              <li><span class="dot"></span><div><strong>Продают слишком рано</strong> — сразу после запуска блога делают оффер и получают отказ. Не понимают почему: «у меня же хороший продукт».</div></li>
+              <li><span class="dot"></span><div><strong>Аудитория не доверяет</strong> — люди подписаны, лайкают, но не покупают. Нет ощущения «своего» человека, нет авторитета.</div></li>
+              <li><span class="dot"></span><div><strong>Не знают, что и когда публиковать</strong> — хаотичный контент без системы. Нет нарратива, нет воронки, нет последовательности.</div></li>
+              <li><span class="dot"></span><div><strong>Боятся продавать</strong> — ощущение «навязываюсь», «выгляжу меркантильно». Продажи через извинения — слабые конверсии.</div></li>
+              <li><span class="dot"></span><div><strong>Каждый запуск — с нуля</strong> — нет системы прогрева. Каждый раз думают «что же написать». Всё интуитивно и второпях.</div></li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Желания -->
+        <div class="mm-block desires">
+          <div class="mm-block-title"><span class="mm-icon">💚</span> Желания и мечты ЦА</div>
+          <div class="mm-block-content">
+            <ul class="mm-list">
+              <li><span class="dot"></span><div>Чтобы подписчики <strong>сами спрашивали «а где купить?»</strong> — до того, как объявили продажи</div></li>
+              <li><span class="dot"></span><div>К моменту открытия продаж — <strong>уже готовый тёплый список</strong> желающих</div></li>
+              <li><span class="dot"></span><div>Люди в блоге видят <strong>авторитета</strong> и приходят готовыми платить</div></li>
+              <li><span class="dot"></span><div>Ощущение, что <strong>продаёшь — не продавая</strong>. Естественно, экологично, без давления</div></li>
+              <li><span class="dot"></span><div><strong>Стабильные продажи</strong>, а не «иногда везёт»</div></li>
+              <li><span class="dot"></span><div>Понятный план: <strong>что публиковать и в какой последовательности</strong> перед каждым запуском</div></li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Ключевые смыслы -->
+        <div class="mm-block meanings">
+          <div class="mm-block-title"><span class="mm-icon">💡</span> Ключевые смыслы для донесения</div>
+          <div class="mm-block-content">
+            <div class="mm-meanings-list">
+
+              <div class="mm-meaning-item">
+                <div class="mm-meaning-quote"><span class="qnum">1</span>«Прогрев — это не манипуляция, это подготовка»</div>
+                <div class="mm-meaning-desc">Прогрев — это не уловки и психологическое давление. Это системная подготовка: ты даёшь ценность, показываешь результаты, снимаешь страхи — и к моменту продажи люди уже готовы и благодарны за предложение.</div>
+                <div class="mm-meaning-why"><strong>Зачем:</strong> снимает страх «выглядеть навязчиво», закрывает возражение «я не хочу манипулировать людьми»</div>
+              </div>
+
+              <div class="mm-meaning-item">
+                <div class="mm-meaning-quote"><span class="qnum">2</span>«Без прогрева любой продукт провалится»</div>
+                <div class="mm-meaning-desc">Даже самый крутой курс не продаётся холодной аудитории. Провальный запуск — это почти всегда не проблема продукта. Это проблема отсутствия прогрева.</div>
+                <div class="mm-meaning-why"><strong>Зачем:</strong> создаёт осознание необходимости. Переворачивает убеждение «мой продукт сам себя продаст»</div>
+              </div>
+
+              <div class="mm-meaning-item">
+                <div class="mm-meaning-quote"><span class="qnum">3</span>«Ты продаёшь не тогда, когда объявляешь — а за 3–6 недель до этого»</div>
+                <div class="mm-meaning-desc">Продажи начинаются не в день открытия корзины. Они начинаются в момент, когда ты первый раз поднял боль аудитории, показал себя как эксперта, дал результат. Прогрев — это и есть продажа, только без давления.</div>
+                <div class="mm-meaning-why"><strong>Зачем:</strong> меняет картину мира. Эксперт понимает, что хаотичный контент до запуска — это потерянные деньги</div>
+              </div>
+
+              <div class="mm-meaning-item">
+                <div class="mm-meaning-quote"><span class="qnum">4</span>«Прогретая аудитория — это очередь, а не уговаривание»</div>
+                <div class="mm-meaning-desc">Когда прогрев выстроен — люди сами пишут «когда уже продажи?», присылают предоплату. Ты переходишь из режима «убеди купить» в режим «выбери, кому продать».</div>
+                <div class="mm-meaning-why"><strong>Зачем:</strong> описывает желаемое будущее. Это мечта любого эксперта — продавать без сопротивления</div>
+              </div>
+
+              <div class="mm-meaning-item">
+                <div class="mm-meaning-quote"><span class="qnum">5</span>«Это система, а не разовая акция»</div>
+                <div class="mm-meaning-desc">Прогрев — это не «написать 5 постов перед запуском». Это архитектура контента: смыслы, триггеры, последовательность, синхронизация с продуктом. Один раз выстроенная система работает на каждый следующий запуск.</div>
+                <div class="mm-meaning-why"><strong>Зачем:</strong> обосновывает стоимость услуги. Это не текст — это стратегия</div>
+              </div>
+
+              <div class="mm-meaning-item">
+                <div class="mm-meaning-quote"><span class="qnum">6</span>«Мы знаем, что работает у твоей аудитории»</div>
+                <div class="mm-meaning-desc">Разные ЦА прогреваются по-разному. Мы строим прогрев под конкретную аудиторию, её страхи, язык, логику принятия решений — не по шаблону из чужого кейса.</div>
+                <div class="mm-meaning-why"><strong>Зачем:</strong> отстраивает от дешёвых шаблонов. Подчёркивает персонализацию</div>
+              </div>
+
+              <div class="mm-meaning-item">
+                <div class="mm-meaning-quote"><span class="qnum">7</span>«Ты занимаешься экспертизой — мы занимаемся продажами»</div>
+                <div class="mm-meaning-desc">Ты умеешь учить, лечить, трансформировать. Но продающий нарратив — это другая профессия. Мы берём на себя стратегию прогрева, ты отвечаешь за продукт.</div>
+                <div class="mm-meaning-why"><strong>Зачем:</strong> даёт разрешение делегировать. Снимает «я сам разберусь» и «я не могу себе это позволить»</div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+        <!-- Возражения -->
+        <div class="mm-block objections">
+          <div class="mm-block-title"><span class="mm-icon">⚡</span> Возражения и как их закрывать</div>
+          <div class="mm-block-content">
+            <div class="mm-objections-grid">
+              <div class="mm-obj-card">
+                <div class="mm-obj-q">«У меня маленькая аудитория, незачем греть»</div>
+                <div class="mm-obj-a">Прогрев важнее при маленькой аудитории — каждый подписчик должен конвертироваться</div>
+              </div>
+              <div class="mm-obj-card">
+                <div class="mm-obj-q">«Я сам напишу»</div>
+                <div class="mm-obj-a">Можешь. Но прогрев без стратегии — это рулетка. Мы строим систему, не набор постов</div>
+              </div>
+              <div class="mm-obj-card">
+                <div class="mm-obj-q">«Это дорого»</div>
+                <div class="mm-obj-a">Один непрогретый запуск стоит дороже. Посчитай, сколько потерял на последнем</div>
+              </div>
+              <div class="mm-obj-card">
+                <div class="mm-obj-q">«Мне некогда»</div>
+                <div class="mm-obj-a">Мы берём работу на себя. Твоё участие — минимально</div>
+              </div>
+              <div class="mm-obj-card">
+                <div class="mm-obj-q">«Я не хочу быть навязчивым»</div>
+                <div class="mm-obj-a">Прогрев — это забота об аудитории, а не манипуляция</div>
+              </div>
+              <div class="mm-obj-card">
+                <div class="mm-obj-q">«Не понимаю, как это работает»</div>
+                <div class="mm-obj-a">Именно поэтому нужен специалист, а не самостоятельные попытки</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Оффер -->
+        <div class="mm-block offer">
+          <div class="mm-block-title"><span class="mm-icon">🎯</span> Формула оффера</div>
+          <div class="mm-block-content">
+            <div class="mm-offer-box">
+              <strong>Выстроим систему прогрева, после которой твои подписчики будут спрашивать «когда продажи?» — ещё до того, как ты откроешь корзину.</strong><br><br>
+              Без манипуляций. Без «продавать каждый день». Без ощущения, что навязываешься.<br>
+              Просто контент, выстроенный в правильную последовательность — под твою аудиторию и твой продукт.
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /mm-card-body -->
+    </div><!-- /mm-card -->
+
+  </section>
+
+  </div><!-- /panel-ca1 -->
+
+  <!-- ─── ПАНЕЛЬ ЦА 2 ─── -->
+  <div id="panel-ca2">
+
+  <!-- HERO CA2 -->
+  <div class="hero ca2-hero">
+    <div class="hero-tag" style="background:rgba(45,212,191,0.12);border-color:rgba(45,212,191,0.3);color:var(--teal);">📊 Маркетинговый ресёрч · ЦА 2</div>
+    <h1 class="ca2-h1">Успешная женщина-эксперт<br>в Instagram / Telegram</h1>
+    <div class="hero-meta">
+      <div class="hero-meta-item">📅 <strong>Май 2026</strong></div>
+      <div class="hero-meta-item">🇺🇦 <strong>Украина + диаспора</strong></div>
+      <div class="hero-meta-item">💰 <strong>Доход: $3,000–20,000+/мес</strong></div>
+      <div class="hero-meta-item">🎯 <strong>Автоматизация · Делегирование · Свобода</strong></div>
+    </div>
+    <div class="tldr ca2-tldr">
+      <p>Эта женщина уже <strong>умеет зарабатывать</strong> — но её бизнес полностью зависит от её личного присутствия. Она не ищет «как продавать» — она ищет <strong>«как наконец-то выйти из операционки»</strong>. Главная боль: деньги есть, времени и жизни — нет. Точки входа: автоматизация, делегирование, системы.</p>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="ca2">
+
+    <!-- CA2 · PORTRAIT -->
+    <section id="ca2-portrait">
+      <div class="section-header">
+        <div class="section-icon" style="background: rgba(45,212,191,0.15);">👑</div>
+        <div class="section-title">
+          <span class="num" style="color:var(--teal)">ЦА 2 · Раздел 1</span>
+          Портрет целевой аудитории
+        </div>
+      </div>
+
+      <div class="portrait-grid">
+        <div class="portrait-card">
+          <div class="label">Кто она</div>
+          <div class="value">Женщина <strong>30–50 лет</strong>, состоявшийся эксперт с работающим онлайн-бизнесом</div>
+        </div>
+        <div class="portrait-card">
+          <div class="label">Ниши</div>
+          <div class="tag-list">
+            <span class="tag teal">Коучинг</span>
+            <span class="tag teal">Психология</span>
+            <span class="tag teal">Финансы</span>
+            <span class="tag teal">Нутрициология</span>
+            <span class="tag teal">Бьюти</span>
+            <span class="tag teal">Отношения</span>
+            <span class="tag teal">Материнство</span>
+            <span class="tag teal">Бизнес-обучение</span>
+          </div>
+        </div>
+        <div class="portrait-card">
+          <div class="label">Что продаёт</div>
+          <div class="tag-list">
+            <span class="tag teal">Наставничество</span>
+            <span class="tag teal">Групповые программы</span>
+            <span class="tag teal">Курсы</span>
+            <span class="tag teal">Закрытый клуб</span>
+            <span class="tag teal">VIP-консультации</span>
+            <span class="tag teal">Онлайн-школа</span>
+          </div>
+        </div>
+        <div class="portrait-card">
+          <div class="label">Аудитория блога</div>
+          <div class="value"><strong>10k–200k+</strong> подписчиков, высокая вовлечённость</div>
+        </div>
+        <div class="portrait-card">
+          <div class="label">Выручка в месяц</div>
+          <div class="value"><strong>$3,000–20,000+</strong> — стабильно, умеет делать запуски</div>
+        </div>
+        <div class="portrait-card">
+          <div class="label">Команда</div>
+          <div class="value">Соло или 1 ассистент · Подрядчики на запуск · Всё равно всё замыкается на ней</div>
+        </div>
+        <div class="portrait-card">
+          <div class="label">Типичная рабочая неделя</div>
+          <div class="value">Утро — контент и эфиры · День — директ и операционка · Вечер — ответы ученикам · Выходные — «отдых» с телефоном в руках</div>
+        </div>
+        <div class="portrait-card">
+          <div class="label">Успех следующего уровня</div>
+          <div class="value"><strong>Не больше денег</strong> — а свободное время, отпуск без потери дохода, бизнес который работает без неё</div>
+        </div>
+        <div class="portrait-card">
+          <div class="label">Ключевая характеристика</div>
+          <div class="value">Борется не за <strong>выживание</strong>, а за <strong>свободу</strong>. Деньги уже есть — нет жизни вне бизнеса</div>
+        </div>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- CA2 · PAINS -->
+    <section id="ca2-pains">
+      <div class="section-header">
+        <div class="section-icon" style="background: rgba(248,113,113,0.15);">🔴</div>
+        <div class="section-title">
+          <span class="num" style="color:var(--teal)">ЦА 2 · Раздел 2</span>
+          Главные боли — её словами
+        </div>
+      </div>
+
+      <div class="pain-blocks">
+
+        <div class="pain-block open">
+          <div class="pain-block-header" onclick="this.parentElement.classList.toggle('open')">
+            <div class="pain-block-num">1</div>
+            <div class="pain-block-title">«Я — двигатель своего бизнеса. И это убивает»</div>
+            <div class="pain-block-count">7 цитат</div>
+            <div class="pain-chevron">▾</div>
+          </div>
+          <div class="pain-block-body">
+            <div class="quote">Если я три дня не веду сторис — заявок нет. Это не бизнес, это я на поводке у своего бизнеса</div>
+            <div class="quote">Хочу уехать на неделю — и уже считаю, сколько денег потеряю. Вот что значит «работать на себя»</div>
+            <div class="quote">Всё держится на моём лице, моём голосе, моём настроении. Я устала — и бизнес «устал»</div>
+            <div class="quote">Я зарабатываю хорошие деньги, но я не свободна. Я просто сама себе строгий работодатель</div>
+            <div class="quote">Заболела — всё встало. Плохое настроение — продаж нет. Это не система, это зависимость</div>
+            <div class="quote">Хочу наконец провести отпуск без телефона. Хотя бы один раз за последние три года</div>
+            <div class="quote">Мои клиенты покупают МЕНЯ. Это приятно, но это же и ловушка</div>
+          </div>
+        </div>
+
+        <div class="pain-block">
+          <div class="pain-block-header" onclick="this.parentElement.classList.toggle('open')">
+            <div class="pain-block-num">2</div>
+            <div class="pain-block-title">«Операционка пожирает всё моё время»</div>
+            <div class="pain-block-count">7 цитат</div>
+            <div class="pain-chevron">▾</div>
+          </div>
+          <div class="pain-block-body">
+            <div class="quote">Трачу 3–4 часа в день только на директ. Это не моя работа — это рутина, которую я не смогла автоматизировать</div>
+            <div class="quote">После каждого запуска мне нужна неделя, чтобы просто прийти в себя. Это ненормально</div>
+            <div class="quote">Хочу думать о стратегии и новом продукте, но постоянно нахожусь в «пожарном режиме»</div>
+            <div class="quote">Каждый новый ученик — это я вручную: пишу приветствие, отправляю доступы, объясняю как войти в курс</div>
+            <div class="quote">Я эксперт, а не операционный менеджер. Но веду себя как менеджер 24/7</div>
+            <div class="quote">Команда без моего вовлечения разваливается. Стоит мне отойти — всё рассыпается</div>
+            <div class="quote">Не могу записать новый курс, потому что не могу выкроить время из операционки</div>
+          </div>
+        </div>
+
+        <div class="pain-block">
+          <div class="pain-block-header" onclick="this.parentElement.classList.toggle('open')">
+            <div class="pain-block-num">3</div>
+            <div class="pain-block-title">«Боюсь делегировать — сделают хуже»</div>
+            <div class="pain-block-count">6 цитат</div>
+            <div class="pain-chevron">▾</div>
+          </div>
+          <div class="pain-block-body">
+            <div class="quote">Наняла ассистента — переделывала за ней больше, чем делала сама. Потратила время и деньги, результат хуже</div>
+            <div class="quote">Лучше сделаю сама — хотя бы знаю, что будет хорошо и в срок</div>
+            <div class="quote">Если перестану контролировать каждую мелочь — всё развалится</div>
+            <div class="quote">Мои клиенты привыкли к моему уровню качества. Боюсь разочаровать, если передам кому-то</div>
+            <div class="quote">Не знаю, как объяснить ассистенту что именно я хочу — это занимает больше времени, чем сделать самой</div>
+            <div class="quote">Пробовала подрядчиков — разочаровалась. Снова всё делаю сама</div>
+          </div>
+        </div>
+
+        <div class="pain-block">
+          <div class="pain-block-header" onclick="this.parentElement.classList.toggle('open')">
+            <div class="pain-block-num">4</div>
+            <div class="pain-block-title">«Хаос в базе — деньги уходят мимо»</div>
+            <div class="pain-block-count">6 цитат</div>
+            <div class="pain-chevron">▾</div>
+          </div>
+          <div class="pain-block-body">
+            <div class="quote">Не знаю точно, кто у меня покупал. Всё в разных таблицах, переписках, заметках</div>
+            <div class="quote">Хочу написать старым клиентам с новым предложением — и не могу собрать базу в одном месте</div>
+            <div class="quote">Понимаю, что теряю деньги на повторных продажах, но не знаю как это исправить без CRM</div>
+            <div class="quote">После каждого запуска база клиентов растёт, а работы с ней — ноль. Это закопанные деньги</div>
+            <div class="quote">Существующие клиенты купили бы ещё — если бы я вовремя предлагала. Но я просто забываю</div>
+            <div class="quote">У меня 500+ оплативших клиентов, а я каждый раз ищу новых с нуля. Что-то здесь не так</div>
+          </div>
+        </div>
+
+        <div class="pain-block">
+          <div class="pain-block-header" onclick="this.parentElement.classList.toggle('open')">
+            <div class="pain-block-num">5</div>
+            <div class="pain-block-title">«Реклама не масштабируется без моих сторис»</div>
+            <div class="pain-block-count">5 цитат</div>
+            <div class="pain-chevron">▾</div>
+          </div>
+          <div class="pain-block-body">
+            <div class="quote">Органика работает, но хочу больше. Не знаю, как запустить стабильный платный трафик без привязки к моему контенту</div>
+            <div class="quote">Пробовала таргет — без моих прогревов в сторис он не окупался</div>
+            <div class="quote">Боюсь масштабировать рекламу — вдруг придёт поток, который я не смогу обработать</div>
+            <div class="quote">Хочу рекламу, которая работает, пока я не веду активно сторис. Это вообще реально?</div>
+            <div class="quote">Мой доход зависит от того, насколько активно я пишу и снимаю. Хочу от этого отвязаться</div>
+          </div>
+        </div>
+
+        <div class="pain-block">
+          <div class="pain-block-header" onclick="this.parentElement.classList.toggle('open')">
+            <div class="pain-block-num">6</div>
+            <div class="pain-block-title">«Хочу пассивный доход, но непонятно как»</div>
+            <div class="pain-block-count">5 цитат</div>
+            <div class="pain-chevron">▾</div>
+          </div>
+          <div class="pain-block-body">
+            <div class="quote">Все говорят про пассивный доход. Я понимаю, что он возможен. Но не понимаю, как именно выстроить его в своей нише</div>
+            <div class="quote">Хочу, чтобы старые курсы продавались сами — через воронку, которая работает без меня</div>
+            <div class="quote">Evergreen-воронка — слышала про неё. Но не знаю, кто мне это настроит так, чтобы реально работало</div>
+            <div class="quote">Хочу иметь доход даже в месяцы, когда не делаю активных запусков</div>
+            <div class="quote">Сделала автовебинар — технически всё работает, но продаж нет. Не понимаю, где проблема</div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- CA2 · GAPS -->
+    <section id="ca2-gaps">
+      <div class="section-header">
+        <div class="section-icon" style="background: rgba(251,191,36,0.15);">🕳️</div>
+        <div class="section-title">
+          <span class="num" style="color:var(--teal)">ЦА 2 · Раздел 3</span>
+          Дыры в системе — где теряет время и деньги
+        </div>
+      </div>
+
+      <div class="gaps-grid">
+
+        <div class="gap-card">
+          <div>
+            <div class="gap-num">Дыра 01</div>
+            <div class="gap-title">Директ вручную — 3–5 часов в день впустую</div>
+          </div>
+          <div class="gap-service">🤖 AI-ассистент / Чат-бот для директа</div>
+          <div class="gap-section">
+            <div class="gap-label">Что происходит сейчас</div>
+            <div class="gap-text">Все входящие, FAQ, квалификация — она делает руками ежедневно. <strong>3–5 часов/день</strong> = 90–150 часов потерянного времени в месяц</div>
+          </div>
+          <div class="gap-section">
+            <div class="gap-label">Сколько теряет</div>
+            <div class="gap-text">1,5–2 рабочих недели в месяц на механические задачи вместо экспертных</div>
+          </div>
+          <div class="highlight-box"><strong>Решение:</strong> AI-бот в директе: квалифицирует, отвечает на FAQ, онбордит учеников — 24/7, без неё</div>
+        </div>
+
+        <div class="gap-card">
+          <div>
+            <div class="gap-num">Дыра 02</div>
+            <div class="gap-title">Нет CRM — клиентская база разбросана по таблицам</div>
+          </div>
+          <div class="gap-service">⚙️ CRM под ключ</div>
+          <div class="gap-section">
+            <div class="gap-label">Что происходит сейчас</div>
+            <div class="gap-text">Клиенты в таблицах, боте, директе, заметках. Единой базы нет. Повторные продажи — случайность, не система</div>
+          </div>
+          <div class="gap-section">
+            <div class="gap-label">Сколько теряет</div>
+            <div class="gap-text">При базе 500+ клиентов — <strong>30–50% потенциальной выручки</strong> от повторных продаж просто не случается</div>
+          </div>
+          <div class="highlight-box"><strong>Решение:</strong> CRM + автоматические цепочки повторных продаж по сегментированной базе</div>
+        </div>
+
+        <div class="gap-card">
+          <div>
+            <div class="gap-num">Дыра 03</div>
+            <div class="gap-title">Ручной онбординг — каждый ученик с нуля</div>
+          </div>
+          <div class="gap-service">🔁 Автоматизация онбординга</div>
+          <div class="gap-section">
+            <div class="gap-label">Что происходит сейчас</div>
+            <div class="gap-text">Каждый новый ученик = ручные действия: приветствие, доступы, объяснение формата, напоминания. <strong>20–30 мин на человека</strong></div>
+          </div>
+          <div class="gap-section">
+            <div class="gap-label">Сколько теряет</div>
+            <div class="gap-text">При 50 учеников в запуске — <strong>25+ часов</strong> механической работы вместо создания нового контента</div>
+          </div>
+          <div class="highlight-box"><strong>Решение:</strong> Бот-онбординг: сам приветствует, отправляет доступы, напоминает, собирает обратную связь</div>
+        </div>
+
+        <div class="gap-card">
+          <div>
+            <div class="gap-num">Дыра 04</div>
+            <div class="gap-title">Нет повторных продаж — каждый раз охота с нуля</div>
+          </div>
+          <div class="gap-service">📧 Автоворонка по базе</div>
+          <div class="gap-section">
+            <div class="gap-label">Что происходит сейчас</div>
+            <div class="gap-text">После запуска база растёт, но системной работы с ней нет. Нет автоматической цепочки для «дожима» и новых предложений старым клиентам</div>
+          </div>
+          <div class="gap-section">
+            <div class="gap-label">Сколько теряет</div>
+            <div class="gap-text">Существующий клиент покупает следующий продукт с конверсией <strong>в 5–7 раз выше</strong>, чем новый. Без системы — эти деньги просто исчезают</div>
+          </div>
+          <div class="highlight-box"><strong>Решение:</strong> Telegram/email-цепочка по базе: греет старых клиентов и ведёт к следующей покупке автоматически</div>
+        </div>
+
+        <div class="gap-card">
+          <div>
+            <div class="gap-num">Дыра 05</div>
+            <div class="gap-title">Реклама не работает без её личных сторис</div>
+          </div>
+          <div class="gap-service">🎯 Таргет + 📄 Лендинг + 🤖 Автоворонка</div>
+          <div class="gap-section">
+            <div class="gap-label">Что происходит сейчас</div>
+            <div class="gap-text">Продаёт через прогрев в сторис — работает, но привязывает к ежедневному присутствию. Холодный трафик без автоворонки не конвертит</div>
+          </div>
+          <div class="gap-section">
+            <div class="gap-label">Сколько теряет</div>
+            <div class="gap-text">Потолок дохода = её физические возможности вести контент. Нет роста без её участия</div>
+          </div>
+          <div class="highlight-box"><strong>Решение:</strong> Связка: таргет → лендинг → автоворонка → продажа. Работает независимо от активности в сторис</div>
+        </div>
+
+        <div class="gap-card">
+          <div>
+            <div class="gap-num">Дыра 06</div>
+            <div class="gap-title">Лендинги устарели под каждый новый продукт</div>
+          </div>
+          <div class="gap-service">📄 Быстрый лендинг под запуск</div>
+          <div class="gap-section">
+            <div class="gap-label">Что происходит сейчас</div>
+            <div class="gap-text">Под каждый обновлённый курс или новый продукт нет актуальной страницы. Ведёт людей в директ — теряет тех, кто хочет «посмотреть информацию»</div>
+          </div>
+          <div class="gap-section">
+            <div class="gap-label">Сколько теряет</div>
+            <div class="gap-text">До <strong>40% потенциальных покупателей</strong> уходят, не получив чёткой структурированной информации о продукте</div>
+          </div>
+          <div class="highlight-box"><strong>Решение:</strong> Лендинг под каждый продукт за 5–7 дней, адаптированный под её аудиторию и ниши</div>
+        </div>
+
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- CA2 · QUERIES -->
+    <section id="ca2-queries">
+      <div class="section-header">
+        <div class="section-icon" style="background: rgba(45,212,191,0.15);">💬</div>
+        <div class="section-title">
+          <span class="num" style="color:var(--teal)">ЦА 2 · Раздел 4</span>
+          Как она ищет решения — реальные запросы
+        </div>
+      </div>
+
+      <div class="queries-grid">
+
+        <div class="query-row">
+          <div class="query-category">
+            <div class="cat-dot" style="background: var(--teal)"></div>
+            <div class="cat-label">🤖 Директ/Бот</div>
+          </div>
+          <div class="query-tags">
+            <span class="q-tag">как делегировать директ инстаграм</span>
+            <span class="q-tag">автоматизировать ответы в директ</span>
+            <span class="q-tag">бот для директа эксперт</span>
+            <span class="q-tag">AI ассистент для инстаграм</span>
+            <span class="q-tag">чат-бот для онлайн школы</span>
+            <span class="q-tag">автоответ директ инстаграм 24/7</span>
+          </div>
+        </div>
+
+        <div class="query-row">
+          <div class="query-category">
+            <div class="cat-dot" style="background: var(--green)"></div>
+            <div class="cat-label">⚙️ CRM/База</div>
+          </div>
+          <div class="query-tags">
+            <span class="q-tag">CRM для онлайн школы</span>
+            <span class="q-tag">CRM для эксперта инфобизнес</span>
+            <span class="q-tag">как вести базу клиентов эксперт</span>
+            <span class="q-tag">повторные продажи автоматически</span>
+            <span class="q-tag">автоматизация базы учеников</span>
+            <span class="q-tag">система управления клиентами онлайн</span>
+          </div>
+        </div>
+
+        <div class="query-row">
+          <div class="query-category">
+            <div class="cat-dot" style="background: var(--yellow)"></div>
+            <div class="cat-label">🔁 Автоматизация</div>
+          </div>
+          <div class="query-tags">
+            <span class="q-tag">автоматизировать онбординг учеников</span>
+            <span class="q-tag">автоматические доступы к курсу</span>
+            <span class="q-tag">Telegram бот для закрытого клуба</span>
+            <span class="q-tag">автоворонка Telegram</span>
+            <span class="q-tag">как выйти из операционки онлайн школа</span>
+            <span class="q-tag">evergreen воронка для курса</span>
+          </div>
+        </div>
+
+        <div class="query-row">
+          <div class="query-category">
+            <div class="cat-dot" style="background: var(--pink)"></div>
+            <div class="cat-label">🧩 Делегирование</div>
+          </div>
+          <div class="query-tags">
+            <span class="q-tag">нанять ассистента для онлайн школы</span>
+            <span class="q-tag">виртуальный ассистент для эксперта</span>
+            <span class="q-tag">как делегировать операционку</span>
+            <span class="q-tag">онбординг ассистента инфобизнес</span>
+            <span class="q-tag">регламенты для ассистента</span>
+            <span class="q-tag">как не переделывать за ассистентом</span>
+          </div>
+        </div>
+
+        <div class="query-row">
+          <div class="query-category">
+            <div class="cat-dot" style="background: var(--accent)"></div>
+            <div class="cat-label">🎯 Масштаб</div>
+          </div>
+          <div class="query-tags">
+            <span class="q-tag">масштабирование без выгорания</span>
+            <span class="q-tag">таргет для прогретой аудитории</span>
+            <span class="q-tag">реклама для эксперта с аудиторией</span>
+            <span class="q-tag">пассивный доход эксперт инстаграм</span>
+            <span class="q-tag">лендинг под новый запуск быстро</span>
+            <span class="q-tag">система продаж без моего участия</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- CA2 · UKRAINE -->
+    <section id="ca2-ukraine">
+      <div class="section-header">
+        <div class="section-icon" style="background: rgba(45,212,191,0.15);">🇺🇦</div>
+        <div class="section-title">
+          <span class="num" style="color:var(--teal)">ЦА 2 · Раздел 5</span>
+          Специфика украинского рынка
+        </div>
+      </div>
+
+      <div class="ukraine-grid">
+
+        <div class="ukraine-card">
+          <div class="ukraine-icon">⚔️</div>
+          <div class="ukraine-content">
+            <div class="uc-title">Форс-мажор как новая норма</div>
+            <div class="uc-text">Отключения света, тревоги, нестабильность — ей особенно важна система, работающая без её присутствия. Автоматизация = устойчивость при любых обстоятельствах</div>
+          </div>
+        </div>
+
+        <div class="ukraine-card">
+          <div class="ukraine-icon">✈️</div>
+          <div class="ukraine-content">
+            <div class="uc-title">Аудитория в Европе</div>
+            <div class="uc-text">30–60% аудитории уехало в Польшу, Германию, Чехию. Нужны: лендинги с оплатой в евро, таргет на EU гео, Stripe/PayPal интеграция</div>
+          </div>
+        </div>
+
+        <div class="ukraine-card">
+          <div class="ukraine-icon">📱</div>
+          <div class="ukraine-content">
+            <div class="uc-title">Telegram — платформа №1</div>
+            <div class="uc-text">У этого сегмента Telegram часто важнее Instagram. Курсы, закрытые клубы, коммуникация с учениками — всё там. Боты для Telegram — горячая потребность</div>
+          </div>
+        </div>
+
+        <div class="ukraine-card">
+          <div class="ukraine-icon">🛡️</div>
+          <div class="ukraine-content">
+            <div class="uc-title">Очень высокий скептицизм</div>
+            <div class="uc-text">Уже обжигалась: таргетологи, продюсеры, ассистенты — был негативный опыт. Покупает только через сильные кейсы, рекомендации коллег и отзывы с деталями</div>
+          </div>
+        </div>
+
+        <div class="ukraine-card">
+          <div class="ukraine-icon">🇺🇦</div>
+          <div class="ukraine-content">
+            <div class="uc-title">Языковой сдвиг</div>
+            <div class="uc-text">Активно перешла или переходит на украинский. Весь контент, боты, лендинги — на украинском. Русскоязычный контент воспринимается крайне негативно</div>
+          </div>
+        </div>
+
+        <div class="ukraine-card">
+          <div class="ukraine-icon">💳</div>
+          <div class="ukraine-content">
+            <div class="uc-title">Мультивалютность</div>
+            <div class="uc-text">Продаёт в гривне + евро + долларах. Нужна интеграция: Monobank, ПриватБанк, Fondy, Stripe — в зависимости от гео клиента и платформы</div>
+          </div>
+        </div>
+
+        <div class="ukraine-card">
+          <div class="ukraine-icon">🤝</div>
+          <div class="ukraine-content">
+            <div class="uc-title">Рекомендательная экономика</div>
+            <div class="uc-text">Доверяет только «по рекомендации от своих». Холодный аутрич не работает. Точка входа — реферал от коллеги-эксперта или кейс в точно её нише</div>
+          </div>
+        </div>
+
+        <div class="ukraine-card">
+          <div class="ukraine-icon">📊</div>
+          <div class="ukraine-content">
+            <div class="uc-title">Высокая зрелость к автоматизации</div>
+            <div class="uc-text">Уже слышала про чат-боты, CRM, AI. Не нужно объяснять «что это» — нужно показать «как именно в её нише» с конкретным кейсом и цифрами</div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- CA2 · SERVICES -->
+    <section id="ca2-services">
+      <div class="section-header">
+        <div class="section-icon" style="background: rgba(45,212,191,0.15);">🛠️</div>
+        <div class="section-title">
+          <span class="num" style="color:var(--teal)">ЦА 2 · Раздел 6</span>
+          Услуги, которые ей нужны — с оффером под каждую
+        </div>
+      </div>
+
+      <div class="services-grid">
+
+        <div class="service-card">
+          <div class="service-icon">🤖</div>
+          <div class="service-name">AI/Чат-бот для директа</div>
+          <div class="service-pain">Закрывает: 3–5 часов ежедневно в директе. Квалификация, FAQ, онбординг учеников — автоматически, 24/7</div>
+          <div class="service-offer">«Освободи 20 часов в неделю: бот отвечает в директе, пока ты занимаешься экспертностью»</div>
+          <div class="service-price">💰 $300–800 / под ключ</div>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon">📧</div>
+          <div class="service-name">Автоворонка по базе клиентов</div>
+          <div class="service-pain">Закрывает: закопанные деньги в базе 500+ клиентов. Telegram/email цепочки с автоматическими повторными предложениями</div>
+          <div class="service-offer">«Твои старые клиенты — это деньги, которые ты уже заработала, но ещё не забрала»</div>
+          <div class="service-price">💰 $400–1000 / под ключ</div>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon">⚙️</div>
+          <div class="service-name">CRM под ключ</div>
+          <div class="service-pain">Закрывает: хаос в базе. Единое место для всех клиентов, история покупок, сегментация, автозадачи менеджеру</div>
+          <div class="service-offer">«Знай о каждом клиенте всё — и продавай ему снова без единого ручного действия»</div>
+          <div class="service-price">💰 $500–1200 / внедрение</div>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon">🔁</div>
+          <div class="service-name">Автоматизация онбординга учеников</div>
+          <div class="service-pain">Закрывает: 20–30 мин на каждого нового ученика вручную. Бот приветствует, отправляет доступы, отвечает на первые вопросы</div>
+          <div class="service-offer">«50 учеников зашли в курс — ты не написала ни одного сообщения руками»</div>
+          <div class="service-price">💰 $200–600 / под ключ</div>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon">📱</div>
+          <div class="service-name">Telegram-бот для закрытого клуба</div>
+          <div class="service-pain">Закрывает: ручное управление подписками, проверку оплат, рассылки, доступы. Бот принимает оплаты, выдаёт доступы, напоминает об оплате</div>
+          <div class="service-offer">«Закрытый клуб на 200 человек — без единого ручного действия с твоей стороны»</div>
+          <div class="service-price">💰 $400–900 / под ключ</div>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon">📄</div>
+          <div class="service-name">Лендинг под новый продукт</div>
+          <div class="service-pain">Закрывает: каждый запуск без нормальной страницы, ведёт клиентов в директ и теряет до 40% потенциальных покупателей</div>
+          <div class="service-offer">«Лендинг, который объясняет и продаёт твой новый продукт — готов за 7 дней»</div>
+          <div class="service-price">💰 $300–700 / под ключ</div>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon">🎯</div>
+          <div class="service-name">Таргет для масштабирования</div>
+          <div class="service-pain">Закрывает: доход зависит от личного контента, нет системы платного трафика. Стабильная реклама в связке с лендингом и автоворонкой</div>
+          <div class="service-offer">«Система, которая привлекает клиентов, пока ты не в сторис»</div>
+          <div class="service-price">💰 $400–800/мес + бюджет</div>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon">📊</div>
+          <div class="service-name">Аналитика и дашборды</div>
+          <div class="service-pain">Закрывает: не понимает свои цифры без ручной сборки данных. Дашборд с ключевыми метриками бизнеса в реальном времени</div>
+          <div class="service-offer">«Видишь цифры своего бизнеса за 30 секунд — без таблиц и ручного сбора»</div>
+          <div class="service-price">💰 $300–700 / настройка</div>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon">🧩</div>
+          <div class="service-name">Система найма + онбординга ассистента</div>
+          <div class="service-pain">Закрывает: нанимает → разочаровывается → делает снова сама. Готовая система: вакансия, фильтр, инструкции, SOP под её бизнес</div>
+          <div class="service-offer">«Наймёшь ассистента, который будет делать правильно — потому что у него будет чёткая система»</div>
+          <div class="service-price">💰 $200–500 / пакет</div>
+        </div>
+
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- CA2 · POSITIONING -->
+    <section id="ca2-positioning">
+      <div class="section-header">
+        <div class="section-icon" style="background: rgba(52,211,153,0.15);">🎯</div>
+        <div class="section-title">
+          <span class="num" style="color:var(--teal)">ЦА 2 · Раздел 7</span>
+          Как говорить с ней — формулировки позиционирования
+        </div>
+      </div>
+
+      <div class="positioning-grid">
+        <div class="ca2-pos-card">
+          <div class="pos-arrow" style="color:var(--teal)">→</div>
+          <div class="pos-text">«Система, которая продаёт, пока ты в отпуске — не метафора, а буквально»</div>
+        </div>
+        <div class="ca2-pos-card">
+          <div class="pos-arrow" style="color:var(--teal)">→</div>
+          <div class="pos-text">«Верни себе 20 часов в неделю — без потери дохода и без найма новых людей»</div>
+        </div>
+        <div class="ca2-pos-card">
+          <div class="pos-arrow" style="color:var(--teal)">→</div>
+          <div class="pos-text">«Твой бизнес не должен зависеть от того, хочешь ли ты сегодня снимать сторис»</div>
+        </div>
+        <div class="ca2-pos-card">
+          <div class="pos-arrow" style="color:var(--teal)">→</div>
+          <div class="pos-text">«В твоей базе лежат деньги, которые ты уже заработала — но ещё не забрала»</div>
+        </div>
+        <div class="ca2-pos-card">
+          <div class="pos-arrow" style="color:var(--teal)">→</div>
+          <div class="pos-text">«Автоматизируем то, что тебя съедает — чтобы ты занималась только тем, в чём незаменима»</div>
+        </div>
+        <div class="ca2-pos-card">
+          <div class="pos-arrow" style="color:var(--teal)">→</div>
+          <div class="pos-text">«Делегируй не людям — делегируй системе. Она не выгорит, не уволится и не сделает хуже»</div>
+        </div>
+        <div class="ca2-pos-card">
+          <div class="pos-arrow" style="color:var(--teal)">→</div>
+          <div class="pos-text">«Один раз настраиваем — работает без тебя годами. Это и есть настоящая свобода»</div>
+        </div>
+        <div class="ca2-pos-card">
+          <div class="pos-arrow" style="color:var(--teal)">→</div>
+          <div class="pos-text">«Не очередной подрядчик с обещаниями — конкретная система под твой бизнес с кейсами в твоей нише»</div>
+        </div>
+        <div class="ca2-pos-card">
+          <div class="pos-arrow" style="color:var(--teal)">→</div>
+          <div class="pos-text">«50 учеников зашли в курс — ты не написала ни одного сообщения руками»</div>
+        </div>
+      </div>
+    </section>
+
+  </div><!-- /ca2 -->
+
+  </div><!-- /panel-ca2 -->
+
+    <!-- FOOTER -->
+  <footer>
+    <div class="footer-sources">
+      <h4>Источники</h4>
+      <div class="source-list">
+        <a href="https://vc.ru/marketing/2745396-strategiya-vedeniya-bloga-dlya-ekspertov-v-2026-2027" target="_blank">Стратегия ведения блога для экспертов 2026–2027 — vc.ru</a>
+        <a href="https://vc.ru/marketing/1114672-pochemu-ekspertnyi-blog-v-socsetyah-ne-prodaet-razbiraem-oshibki" target="_blank">Почему экспертный блог не продаёт — vc.ru</a>
+        <a href="https://vc.ru/marketing/1661322-lending-ili-chat-boty-chto-budet-konvertit-v-2025" target="_blank">Лендинг или чат-боты: что конвертит в 2025 — vc.ru</a>
+        <a href="https://smmbot.net/blog/instagram-marketing-dla-koucej-i-prodvizenia-infoproduktov-93.html" target="_blank">Instagram-маркетинг для коучей — SMMBot</a>
+        <a href="https://engage.org.ua/ru/yak-zaroblyaty-v-instagram-strategiyi-dlya-novachkiv-i-profi-u-2025-2026/" target="_blank">Как зарабатывать в Instagram 2025–2026 — Engage.org.ua</a>
+        <a href="https://netpeak.ua/ru/services/smm/instagram-ads/" target="_blank">Таргетированная реклама Instagram — Netpeak Украина</a>
+        <a href="https://hostiq.ua/blog/instargam-promotion/" target="_blank">Как раскрутить Instagram в 2026 — HOSTiQ.ua</a>
+        <a href="https://elit-web.ua/blog/kak-nastroit-voronku-prodazh-v-instagram" target="_blank">Воронка продаж в Instagram 2025 — Elit-Web</a>
+        <a href="https://blog.chatplace.io/ii-bot-dlya-biznesa-gayd-po-zapusku-v-2026/" target="_blank">ИИ-агент или чат-бот: что запустить в 2026 — ChatPlace</a>
+      </div>
+    </div>
+    <div class="footer-note">DeepResearch · Май 2026 · Украина · Instagram & Telegram эксперты · ЦА 1 + ЦА 2</div>
+  </footer>
+
+
+
+</div>
+
+<a href="#" class="scroll-top" title="Наверх">↑</a>
+
+
+<script>
+function toggleAccordion(btn) {
+  var item = btn.closest('.accordion-item');
+  var isOpen = item.classList.contains('open');
+  // Закрыть все в той же секции
+  var section = item.closest('.services-section');
+  section.querySelectorAll('.accordion-item.open').forEach(function(el) {
+    el.classList.remove('open');
+  });
+  // Открыть текущий, если был закрыт
+  if (!isOpen) {
+    item.classList.add('open');
+  }
+}
+
+function switchCA(ca) {
+  document.getElementById('panel-ca1').style.display = ca === 'ca1' ? 'block' : 'none';
+  document.getElementById('panel-ca2').style.display = ca === 'ca2' ? 'block' : 'none';
+  document.getElementById('nav-ca1').style.display   = ca === 'ca1' ? 'flex' : 'none';
+  document.getElementById('nav-ca2').style.display   = ca === 'ca2' ? 'flex' : 'none';
+  document.querySelectorAll('.ca-tab').forEach(function(t) {
+    t.classList.toggle('active', t.dataset.ca === ca);
+  });
+  var badge = document.getElementById('nav-badge');
+  if (ca === 'ca2') {
+    badge.style.background = 'linear-gradient(135deg, var(--teal), var(--green))';
+  } else {
+    badge.style.background = '';
+  }
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+</script>
+
+
+</body>
+</html>
