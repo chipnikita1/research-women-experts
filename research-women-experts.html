@@ -1238,6 +1238,33 @@
     color: var(--accent3);
   }
 
+  /* ─── ACCORDION TEAL (CA2) ─── */
+  .accordion-item.teal:hover {
+    border-color: rgba(45,212,191,0.3);
+  }
+  .accordion-item.teal.open {
+    border-color: rgba(45,212,191,0.5);
+  }
+  .accordion-item.teal .accordion-num {
+    background: linear-gradient(135deg, var(--teal), #34d399);
+  }
+  .accordion-item.teal .accordion-pain .pain-label {
+    color: var(--teal);
+  }
+  .accordion-item.teal.open .accordion-arrow {
+    color: var(--teal);
+  }
+  .service-pill.teal {
+    border-color: rgba(45,212,191,0.25);
+  }
+  .service-pill.teal::before {
+    color: var(--teal);
+  }
+  .service-pill.teal:hover {
+    border-color: var(--teal);
+    color: var(--teal);
+  }
+
 </style>
 </head>
 <body>
@@ -1274,6 +1301,7 @@
     <li><a href="#ca2-ukraine" style="color:var(--teal)">Специфика UA</a></li>
     <li><a href="#ca2-services" style="color:var(--teal)">Услуги</a></li>
     <li><a href="#ca2-positioning" style="color:var(--teal)">Позиционирование</a></li>
+    <li><a href="#ca2-accordion" style="color:var(--teal)">Услуги по болям</a></li>
     <li><a href="#meaning-maps-ca2" style="color:var(--teal)">Смыслы ЦА2</a></li>
   </ul>
 
@@ -5770,6 +5798,131 @@
       </div>
     </section>
 
+
+  <!-- ─── УСЛУГИ ПО БОЛЯМ ЦА 2 ─── -->
+  <section id="ca2-accordion" class="services-section">
+    <div class="services-section-title">Что мы внедряем</div>
+    <div class="services-section-subtitle">Услуги, подобранные под боли ЦА 2 — нажмите на боль, чтобы увидеть решения</div>
+
+    <!-- 1 -->
+    <div class="accordion-item teal">
+      <button class="accordion-trigger" onclick="toggleAccordion(this)">
+        <div class="accordion-num">1</div>
+        <div class="accordion-pain">
+          <div class="pain-label">Боль</div>
+          <div class="pain-title">Я — двигатель. Без меня бизнес стоит</div>
+        </div>
+        <div class="accordion-arrow">▾</div>
+      </button>
+      <div class="accordion-body">
+        <div class="accordion-services">
+          <span class="service-pill teal">Продающие воронки</span>
+          <span class="service-pill teal">Evergreen воронки</span>
+          <span class="service-pill teal">ИИ-менеджер по продажам</span>
+          <span class="service-pill teal">Команда AI-агентов под ключ</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2 -->
+    <div class="accordion-item teal">
+      <button class="accordion-trigger" onclick="toggleAccordion(this)">
+        <div class="accordion-num">2</div>
+        <div class="accordion-pain">
+          <div class="pain-label">Боль</div>
+          <div class="pain-title">Операционка пожирает всё моё время</div>
+        </div>
+        <div class="accordion-arrow">▾</div>
+      </button>
+      <div class="accordion-body">
+        <div class="accordion-services">
+          <span class="service-pill teal">Воронки и чат-боты</span>
+          <span class="service-pill teal">Автоматизация постинга и контента</span>
+          <span class="service-pill teal">AI-агенты для внедрения в бизнес</span>
+          <span class="service-pill teal">Боты индивидуального стиля</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3 -->
+    <div class="accordion-item teal">
+      <button class="accordion-trigger" onclick="toggleAccordion(this)">
+        <div class="accordion-num">3</div>
+        <div class="accordion-pain">
+          <div class="pain-label">Боль</div>
+          <div class="pain-title">Боюсь делегировать — сделают хуже</div>
+        </div>
+        <div class="accordion-arrow">▾</div>
+      </button>
+      <div class="accordion-body">
+        <div class="accordion-services">
+          <span class="service-pill teal">Команда AI-агентов под ключ</span>
+          <span class="service-pill teal">AI-агенты для внедрения в бизнес</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 4 -->
+    <div class="accordion-item teal">
+      <button class="accordion-trigger" onclick="toggleAccordion(this)">
+        <div class="accordion-num">4</div>
+        <div class="accordion-pain">
+          <div class="pain-label">Боль</div>
+          <div class="pain-title">Хаос в базе — деньги уходят мимо</div>
+        </div>
+        <div class="accordion-arrow">▾</div>
+      </button>
+      <div class="accordion-body">
+        <div class="accordion-services">
+          <span class="service-pill teal">Реанимация базы клиентов</span>
+          <span class="service-pill teal">Дашборды для отслеживания конверсий</span>
+          <span class="service-pill teal">Партнёрская программа</span>
+          <span class="service-pill teal">Подключение платёжек. Продукты по подписке</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 5 -->
+    <div class="accordion-item teal">
+      <button class="accordion-trigger" onclick="toggleAccordion(this)">
+        <div class="accordion-num">5</div>
+        <div class="accordion-pain">
+          <div class="pain-label">Боль</div>
+          <div class="pain-title">Реклама не масштабируется без моих сторис</div>
+        </div>
+        <div class="accordion-arrow">▾</div>
+      </button>
+      <div class="accordion-body">
+        <div class="accordion-services">
+          <span class="service-pill teal">Таргет с ИИ-агентами</span>
+          <span class="service-pill teal">Таргет на поток заявок на продукты</span>
+          <span class="service-pill teal">Создание постов-каруселей</span>
+          <span class="service-pill teal">Эффективные креативы</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 6 -->
+    <div class="accordion-item teal">
+      <button class="accordion-trigger" onclick="toggleAccordion(this)">
+        <div class="accordion-num">6</div>
+        <div class="accordion-pain">
+          <div class="pain-label">Боль</div>
+          <div class="pain-title">Хочу пассивный доход, но непонятно как</div>
+        </div>
+        <div class="accordion-arrow">▾</div>
+      </button>
+      <div class="accordion-body">
+        <div class="accordion-services">
+          <span class="service-pill teal">Автоматическая продажа мини-продуктов</span>
+          <span class="service-pill teal">Посадочные страницы / Сайты</span>
+          <span class="service-pill teal">Сайты индивидуального стиля</span>
+          <span class="service-pill teal">Запуски под ключ с процентом от продаж</span>
+        </div>
+      </div>
+    </div>
+
+  </section>
 
   <section id="meaning-maps-ca2" class="meaning-maps-section">
     <div class="meaning-maps-header">
