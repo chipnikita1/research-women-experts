@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Site</title>
+  <style>
+    @font-face {
+      font-family: 'Inter';
+      src: url('fonts/inter-black.woff2') format('woff2');
+      font-weight: 900;
+      font-style: normal;
+    }
+    @font-face {
+      font-family: 'Inter';
+      src: url('fonts/inter-bold.woff2') format('woff2');
+      font-weight: 700;
+      font-style: normal;
+    }
+    @font-face {
+      font-family: 'Inter';
+      src: url('fonts/inter-semibold.woff2') format('woff2');
+      font-weight: 600;
+      font-style: normal;
+    }
+    @font-face {
+      font-family: 'GoogleSans';
+      src: url('fonts/googlesans-regular.woff2') format('woff2');
+      font-weight: 400;
+      font-style: normal;
+    }
+    @font-face {
+      font-family: 'GoogleSans';
+      src: url('fonts/googlesans-medium.woff2') format('woff2');
+      font-weight: 500;
+      font-style: normal;
+    }
+    @font-face {
+      font-family: 'Playfair';
+      src: url('fonts/playfair-italic.woff2') format('woff2');
+      font-weight: 400;
+      font-style: italic;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #000; }
+
+    .photo-wrap {
+      position: relative;
+      line-height: 0;
+    }
+    .photo-wrap img {
+      width: 100%;
+      display: block;
+    }
+    .photo-wrap::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0;
+      width: 100%; height: 50%;
+      background: linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.6) 50%, #000 100%);
+    }
+    .photo-wrap:last-child::after { display: none; }
+
+    /* Оффер поверх фото */
+    .offer-section {
+      position: absolute;
+      bottom: 0; left: 0;
+      width: 100%;
+      z-index: 2;
+      padding: 0 24px 32px;
+      text-align: center;
+      transform: translateY(50%);
+    }
+
+    .offer-headline {
+      font-family: 'Inter', sans-serif;
+      font-weight: 600;
+      font-size: clamp(1.2rem, 3.8vw, 2rem);
+      color: #fff;
+      line-height: 1.25;
+      margin-bottom: 16px;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+      text-transform: uppercase;
+    }
+
+    .offer-headline .accent {
+      color: #1cf7fb;
+      font-weight: 700;
+    }
+
+    .offer-sub {
+      font-family: 'GoogleSans', sans-serif;
+      font-weight: 400;
+      font-size: clamp(0.78rem, 2.2vw, 0.9rem);
+      color: rgba(255,255,255,0.78);
+      line-height: 1.6;
+      margin-bottom: 28px;
+      max-width: 480px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* Кнопка */
+    .btn-wrap {
+      width: 100%;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .btn {
+      display: block;
+      width: 100%;
+      padding: 20px 24px;
+      border-radius: 100px;
+      background: radial-gradient(ellipse at 50% 10%, #ffffff 0%, #ffffa8 18%, #eeff33 50%, #c8d800 100%);
+      border: 3px solid #0a0a0a;
+      box-shadow: 0 0 0 3px #c4d400;
+      font-family: 'Inter', sans-serif;
+      font-weight: 900;
+      font-size: clamp(0.95rem, 2.5vw, 1.1rem);
+      color: #000;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      cursor: pointer;
+      text-decoration: none;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="photo-wrap">
+    <img src="images/photo1.jpg" alt="">
+    <div class="offer-section">
+      <p class="offer-headline">
+        Новая модель продуктов по подписке, которую не используют 70% экспертов — теряя <span class="accent">3 000–10 000$</span> пассивного дохода ежемесячно.
+      </p>
+      <p class="offer-sub">
+        Вместо разовой продажи продукта — доход от своего клуба, который накапливается каждый месяц
+      </p>
+      <div class="btn-wrap">
+        <a class="btn" href="#">Хочу свой клуб</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="photo-wrap">
+    <img src="images/photo2.png" alt="">
+  </div>
+
+  <div class="photo-wrap">
+    <img src="images/photo3.jpg" alt="">
+  </div>
+
+</body>
+</html>
