@@ -36,6 +36,13 @@
       font-style: normal;
     }
     @font-face {
+      font-family: 'CormorantUnicase';
+      src: url('fonts/cormorant-unicase-cyr.woff2') format('woff2'),
+           url('fonts/cormorant-unicase.woff2') format('woff2');
+      font-weight: 400;
+      font-style: normal;
+    }
+    @font-face {
       font-family: 'Playfair';
       src: url('fonts/playfair-italic.woff2') format('woff2');
       font-weight: 400;
@@ -43,7 +50,7 @@
     }
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { background: #000; }
+    html, body { background: #000; overflow-x: hidden; }
 
     .photo-wrap {
       position: relative;
@@ -52,6 +59,22 @@
     .photo-wrap img {
       width: 100%;
       display: block;
+    }
+    .img-scale {
+      overflow: hidden;
+      line-height: 0;
+    }
+    .img-scale img {
+      transform: scale(1.34);
+      transform-origin: center center;
+    }
+    .img-scale-20 {
+      overflow: hidden;
+      line-height: 0;
+    }
+    .img-scale-20 img {
+      transform: scale(1.30) translateY(23px);
+      transform-origin: center center;
     }
     .photo-wrap::after {
       content: '';
@@ -68,7 +91,8 @@
       bottom: 0; left: 0;
       width: 100%;
       z-index: 2;
-      padding: 0 24px 32px;
+      padding: 0 24px 2px;
+      margin-bottom: -40px;
       text-align: center;
       transform: translateY(50%);
     }
@@ -98,9 +122,81 @@
       color: rgba(255,255,255,0.78);
       line-height: 1.6;
       margin-bottom: 28px;
-      max-width: 480px;
+      max-width: 357px;
       margin-left: auto;
       margin-right: auto;
+    }
+
+    /* Оверлей на третьем фото */
+    .card-overlay {
+      position: absolute;
+      top: 18%;
+      left: 0;
+      width: 100%;
+      padding: 0 8%;
+      z-index: 2;
+      transform: translate(30px, -23px);
+    }
+
+    .card-top {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      margin-bottom: 8%;
+    }
+
+    .card-title {
+      position: relative;
+      font-family: 'Inter', sans-serif;
+      font-weight: 700;
+      font-size: clamp(1.2rem, 4vw, 1.65rem);
+      color: #fff;
+      line-height: 1.2;
+      max-width: 55%;
+      transform: translate(15px, -3px);
+    }
+
+    .card-badge {
+      position: absolute;
+      font-family: 'Inter', sans-serif;
+      font-weight: 700;
+      font-size: clamp(0.85rem, 3vw, 1.1rem);
+      color: #fff;
+      white-space: nowrap;
+    }
+
+    .card-sub {
+      font-family: 'MontserratThin', sans-serif;
+      font-weight: 100;
+      font-size: clamp(0.59rem, 2.4vw, 0.74rem);
+      color: #fff;
+      line-height: 1.4;
+      text-transform: uppercase;
+      transform: translate(21px, 24px);
+    }
+
+    /* Светящийся кружок */
+    .glow-dot {
+      position: absolute;
+      bottom: 8.5%;
+      left: 53%;
+      transform: translateX(calc(-50% + 25px));
+      width: 65px;
+      height: 65px;
+      z-index: 2;
+    }
+
+    .btn-note {
+      margin-top: 30px;
+      font-family: 'GoogleSans', sans-serif;
+      font-weight: 400;
+      font-size: clamp(0.7rem, 2vw, 0.8rem);
+      color: #fff;
+      text-align: center;
+    }
+
+    .btn-note .accent {
+      color: #1cf7fb;
     }
 
     /* Кнопка */
@@ -133,26 +229,39 @@
 <body>
 
   <div class="photo-wrap">
-    <img src="images/photo1.jpg" alt="">
+    <div class="img-scale"><img src="images/photo1.jpg" alt=""></div>
     <div class="offer-section">
       <p class="offer-headline">
-        Новая модель продуктов по подписке, которую не используют 70% экспертов — теряя <span class="accent">3 000–10 000$</span> пассивного дохода ежемесячно.
+        Модель продуктов по подписке, которую не используют 70% экспертов — теряя <span class="accent">3 000–10 000$</span> пассивного дохода ежемесячно
       </p>
       <p class="offer-sub">
         Вместо разовой продажи продукта — доход от своего клуба, который накапливается каждый месяц
       </p>
       <div class="btn-wrap">
         <a class="btn" href="#">Хочу свой клуб</a>
+        <p class="btn-note">подключение вашего клуба со <span class="accent">скидкой 20%</span></p>
       </div>
     </div>
   </div>
 
   <div class="photo-wrap">
     <img src="images/photo2.png" alt="">
+    <svg class="glow-dot" viewBox="0 0 65 65" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="32.5" cy="32.5" r="32.5" fill="#1cf7fb"/>
+      <text x="32.5" y="24" font-size="10" fill="#000" font-weight="700" text-anchor="middle" font-family="Inter, sans-serif">Каждый</text>
+      <text x="32.5" y="37" font-size="10" fill="#000" font-weight="700" text-anchor="middle" font-family="Inter, sans-serif">месяц</text>
+      <text x="32.5" y="56" font-size="18" fill="#000" font-weight="900" text-anchor="middle" font-family="Inter, sans-serif">$</text>
+    </svg>
   </div>
 
   <div class="photo-wrap">
-    <img src="images/photo3.jpg" alt="">
+    <div class="img-scale-20"><img src="images/photo3.jpg" alt=""></div>
+    <div class="card-overlay">
+      <div class="card-top">
+        <p class="card-title">ДОХОД УВЕЛИЧИВАЕТСЯ</p>
+      </div>
+      <p class="card-sub">с каждым<br>новым подписчиком</p>
+    </div>
   </div>
 
 </body>
