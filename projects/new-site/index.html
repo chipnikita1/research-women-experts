@@ -209,8 +209,8 @@
 
     /* ── STICKY STACK ── */
     .sk-section {
-      /* 100vh sticky area + 5 card steps * 65vh + 65vh end pause */
-      height: calc(100vh + 390vh);
+      /* 100vh sticky area + 5 card steps * 85vh + 85vh end pause */
+      height: 610vh;
       background: #000;
     }
 
@@ -264,18 +264,23 @@
       position: absolute;
       top: 0; bottom: 0;
       left: 0; right: 0;
-      margin: 0 auto;
-      width: min(300px, 88vw);
-      border-radius: 22px;
+      width: 100%;
+      border-radius: 0;
       overflow: hidden;
       will-change: transform;
       transform: translateY(110%);
-      box-shadow: 0 -10px 50px rgba(0,0,0,.7);
+      box-shadow: 0 -12px 60px rgba(0,0,0,.8);
     }
     .sk-card[data-i="0"] { transform: translateY(0%); }
 
-    .sk-card-bg { position: absolute; inset: 0; }
-    .sk-art { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+    .sk-photo {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+    }
     .sk-vignette {
       position: absolute; inset: 0; pointer-events: none;
       background: radial-gradient(70% 60% at 50% 40%, transparent 0%, rgba(0,0,0,.45) 100%);
@@ -334,19 +339,6 @@
     }
     .sk-copy b { color: #fff; font-weight: 500; }
 
-    .sk-dots {
-      display: flex;
-      gap: 7px;
-      padding: 16px 0 4px;
-      flex-shrink: 0;
-    }
-    .sk-dot {
-      width: 20px; height: 3px;
-      border-radius: 2px;
-      background: rgba(255,255,255,.2);
-      transition: background .3s, width .3s;
-    }
-    .sk-dot.on { background: #fff; width: 36px; }
 
     .btn {
       display: block;
@@ -416,33 +408,8 @@
       <div class="sk-stage">
 
         <div class="sk-card" data-i="0">
-          <div class="sk-card-bg sk-bg-1">
-            <svg class="sk-art" viewBox="0 0 360 600" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-              <defs>
-                <radialGradient id="c1h" cx="50%" cy="42%" r="38%"><stop offset="0%" stop-color="#3ee0c8" stop-opacity=".75"/><stop offset="60%" stop-color="#7c4dff" stop-opacity=".35"/><stop offset="100%" stop-color="#7c4dff" stop-opacity="0"/></radialGradient>
-                <radialGradient id="c1f" cx="50%" cy="100%" r="75%"><stop offset="0%" stop-color="#1a0a3a" stop-opacity=".9"/><stop offset="100%" stop-color="#06040f" stop-opacity="0"/></radialGradient>
-              </defs>
-              <rect width="360" height="600" fill="url(#c1f)"/>
-              <circle cx="180" cy="252" r="170" fill="url(#c1h)"/>
-              <g fill="#06040f" opacity=".95">
-                <ellipse cx="110" cy="330" rx="6" ry="14"/><circle cx="110" cy="315" r="5"/>
-                <ellipse cx="250" cy="340" rx="6" ry="14"/><circle cx="250" cy="325" r="5"/>
-                <ellipse cx="75" cy="260" rx="6" ry="14"/><circle cx="75" cy="245" r="5"/>
-                <ellipse cx="285" cy="260" rx="6" ry="14"/><circle cx="285" cy="245" r="5"/>
-                <ellipse cx="140" cy="380" rx="6" ry="14"/><circle cx="140" cy="365" r="5"/>
-                <ellipse cx="220" cy="380" rx="6" ry="14"/><circle cx="220" cy="365" r="5"/>
-                <ellipse cx="40" cy="420" rx="7" ry="16"/><circle cx="40" cy="403" r="5.5"/>
-                <ellipse cx="320" cy="420" rx="7" ry="16"/><circle cx="320" cy="403" r="5.5"/>
-              </g>
-              <g>
-                <circle cx="180" cy="260" r="42" fill="#3ee0c8" opacity=".25"/>
-                <circle cx="180" cy="260" r="22" fill="#3ee0c8" opacity=".35"/>
-                <ellipse cx="180" cy="270" rx="7" ry="18" fill="#fff"/>
-                <circle cx="180" cy="250" r="6" fill="#fff"/>
-              </g>
-            </svg>
-            <div class="sk-vignette"></div><div class="sk-grain"></div>
-          </div>
+          <img class="sk-photo" src="images/card1.png" alt="">
+          <div class="sk-vignette"></div><div class="sk-grain"></div>
           <div class="sk-body">
             <div class="sk-label"><span class="sk-pill">01 / 06</span> Аудитория</div>
             <h3>500+ учеников <em>уже у вас.</em></h3>
@@ -451,32 +418,8 @@
         </div>
 
         <div class="sk-card" data-i="1">
-          <div class="sk-card-bg sk-bg-2">
-            <svg class="sk-art" viewBox="0 0 360 600" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-              <defs>
-                <radialGradient id="c2l" cx="50%" cy="22%" r="32%"><stop offset="0%" stop-color="#4a7dff" stop-opacity=".55"/><stop offset="100%" stop-color="#4a7dff" stop-opacity="0"/></radialGradient>
-                <linearGradient id="c2t" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#1a2440"/><stop offset="100%" stop-color="#06040f"/></linearGradient>
-              </defs>
-              <ellipse cx="180" cy="140" rx="220" ry="120" fill="url(#c2l)"/>
-              <g fill="#06040f" stroke="rgba(255,255,255,.06)" stroke-width="1">
-                <rect x="30" y="460" width="60" height="90" rx="4"/><rect x="150" y="460" width="60" height="90" rx="4"/><rect x="270" y="460" width="60" height="90" rx="4"/>
-              </g>
-              <rect x="0" y="330" width="360" height="110" fill="url(#c2t)"/>
-              <line x1="0" y1="330" x2="360" y2="330" stroke="rgba(255,255,255,.12)" stroke-width="1"/>
-              <g>
-                <g transform="translate(40,300)"><rect width="36" height="30" rx="3" fill="#0d1530" stroke="rgba(255,255,255,.18)"/><line x1="6" y1="10" x2="30" y2="10" stroke="rgba(255,255,255,.25)"/></g>
-                <g transform="translate(95,300)"><rect width="36" height="30" rx="3" fill="#0d1530" stroke="rgba(255,255,255,.18)"/><line x1="6" y1="10" x2="30" y2="10" stroke="rgba(255,255,255,.25)"/></g>
-                <g transform="translate(150,300)"><rect width="36" height="30" rx="3" fill="#0d1530" stroke="rgba(255,255,255,.18)"/><line x1="6" y1="10" x2="30" y2="10" stroke="rgba(255,255,255,.25)"/></g>
-                <g transform="translate(205,300)"><rect width="36" height="30" rx="3" fill="#0d1530" stroke="rgba(255,255,255,.18)"/><line x1="6" y1="10" x2="30" y2="10" stroke="rgba(255,255,255,.25)"/></g>
-                <g transform="translate(260,300)"><rect width="36" height="30" rx="3" fill="#0d1530" stroke="rgba(255,255,255,.18)"/><line x1="6" y1="10" x2="30" y2="10" stroke="rgba(255,255,255,.25)"/></g>
-              </g>
-              <g fill="#06040f" opacity=".98"><path d="M150 295 Q170 240 180 240 Q190 240 210 295 Z"/><circle cx="180" cy="222" r="18"/></g>
-              <line x1="180" y1="0" x2="180" y2="110" stroke="rgba(255,255,255,.18)"/>
-              <circle cx="180" cy="118" r="8" fill="#f5e0a6"/>
-              <circle cx="180" cy="118" r="22" fill="#f5e0a6" opacity=".18"/>
-            </svg>
-            <div class="sk-vignette"></div><div class="sk-grain"></div>
-          </div>
+          <img class="sk-photo" src="images/card2.png" alt="">
+          <div class="sk-vignette"></div><div class="sk-grain"></div>
           <div class="sk-body">
             <div class="sk-label"><span class="sk-pill">02 / 06</span> Повторение</div>
             <h3>Одно и то же — <em>разным.</em></h3>
@@ -485,29 +428,8 @@
         </div>
 
         <div class="sk-card" data-i="2">
-          <div class="sk-card-bg sk-bg-3">
-            <svg class="sk-art" viewBox="0 0 360 600" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-              <defs>
-                <linearGradient id="c3a" x1="0" y1="1" x2=".5" y2="0"><stop offset="0%" stop-color="#7c4dff" stop-opacity="0"/><stop offset="50%" stop-color="#7c4dff" stop-opacity=".55"/><stop offset="100%" stop-color="#3ee0c8" stop-opacity="0"/></linearGradient>
-                <linearGradient id="c3b" x1="0" y1="1" x2="0" y2="0"><stop offset="0%" stop-color="#7c4dff" stop-opacity="0"/><stop offset="45%" stop-color="#fff" stop-opacity=".55"/><stop offset="100%" stop-color="#fff" stop-opacity="0"/></linearGradient>
-                <linearGradient id="c3c" x1="1" y1="1" x2=".5" y2="0"><stop offset="0%" stop-color="#7c4dff" stop-opacity="0"/><stop offset="50%" stop-color="#7c4dff" stop-opacity=".55"/><stop offset="100%" stop-color="#3ee0c8" stop-opacity="0"/></linearGradient>
-                <radialGradient id="c3f" cx="50%" cy="55%" r="55%"><stop offset="0%" stop-color="#7c4dff" stop-opacity=".25"/><stop offset="100%" stop-color="#7c4dff" stop-opacity="0"/></radialGradient>
-              </defs>
-              <rect width="360" height="600" fill="url(#c3f)"/>
-              <g fill="#06040f" opacity=".9">
-                <polygon points="20,420 35,260 50,420"/><polygon points="60,420 78,300 96,420"/>
-                <polygon points="310,420 325,250 340,420"/><polygon points="265,420 285,290 305,420"/>
-              </g>
-              <path d="M180 480 Q140 380 60 240" stroke="url(#c3a)" stroke-width="3" fill="none"/>
-              <path d="M180 480 Q180 360 180 200" stroke="url(#c3b)" stroke-width="3" fill="none"/>
-              <path d="M180 480 Q220 380 300 240" stroke="url(#c3c)" stroke-width="3" fill="none"/>
-              <ellipse cx="180" cy="480" rx="120" ry="14" fill="#7c4dff" opacity=".35"/>
-              <ellipse cx="180" cy="480" rx="40" ry="6" fill="#fff" opacity=".5"/>
-              <g fill="#06040f"><ellipse cx="180" cy="445" rx="14" ry="34"/><circle cx="180" cy="408" r="11"/></g>
-              <path d="M155 0 L205 0 L230 240 L130 240 Z" fill="url(#c3b)" opacity=".4"/>
-            </svg>
-            <div class="sk-vignette"></div><div class="sk-grain"></div>
-          </div>
+          <img class="sk-photo" src="images/card3.png" alt="">
+          <div class="sk-vignette"></div><div class="sk-grain"></div>
           <div class="sk-body">
             <div class="sk-label"><span class="sk-pill">03 / 06</span> Развилка</div>
             <h3>Пассивный доход — <em>возможен.</em></h3>
@@ -516,34 +438,8 @@
         </div>
 
         <div class="sk-card" data-i="3">
-          <div class="sk-card-bg sk-bg-4">
-            <svg class="sk-art" viewBox="0 0 360 600" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-              <defs>
-                <linearGradient id="c4p" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#1a0a1f"/><stop offset="100%" stop-color="#06040f"/></linearGradient>
-                <linearGradient id="c4s" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#ff6b9a"/><stop offset="60%" stop-color="#f5c26b"/><stop offset="100%" stop-color="#7c4dff"/></linearGradient>
-                <radialGradient id="c4g" cx="50%" cy="40%" r="55%"><stop offset="0%" stop-color="#f5c26b" stop-opacity=".45"/><stop offset="100%" stop-color="#f5c26b" stop-opacity="0"/></radialGradient>
-              </defs>
-              <rect width="360" height="600" fill="url(#c4g)"/>
-              <rect x="90" y="60" width="180" height="320" rx="24" fill="url(#c4p)" stroke="rgba(245,194,107,.5)" stroke-width="1.5"/>
-              <rect x="100" y="72" width="160" height="296" rx="16" fill="#06040f"/>
-              <g>
-                <circle cx="118" cy="96" r="10" fill="none" stroke="url(#c4s)" stroke-width="2"/>
-                <circle cx="144" cy="96" r="10" fill="none" stroke="url(#c4s)" stroke-width="2"/>
-                <circle cx="170" cy="96" r="10" fill="none" stroke="url(#c4s)" stroke-width="2"/>
-                <circle cx="196" cy="96" r="10" fill="none" stroke="url(#c4s)" stroke-width="2"/>
-              </g>
-              <rect x="108" y="132" width="144" height="220" rx="10" fill="url(#c4s)" opacity=".85"/>
-              <text x="180" y="246" text-anchor="middle" font-family="Inter,sans-serif" font-weight="800" font-size="22" fill="#06040f">LIVE</text>
-              <g stroke="#f5c26b" stroke-width="2" fill="none" opacity=".95"><path d="M180 380 Q200 430 230 470"/></g>
-              <g fill="#f5c26b">
-                <circle cx="188" cy="395" r="3"/><circle cx="198" cy="412" r="3"/>
-                <circle cx="210" cy="432" r="3"/><circle cx="222" cy="452" r="3"/>
-              </g>
-              <g fill="#06040f"><ellipse cx="250" cy="500" rx="18" ry="38"/><circle cx="250" cy="462" r="14"/></g>
-              <circle cx="228" cy="468" r="5" fill="none" stroke="#f5c26b" stroke-width="2"/>
-            </svg>
-            <div class="sk-vignette"></div><div class="sk-grain"></div>
-          </div>
+          <img class="sk-photo" src="images/card4.png" alt="">
+          <div class="sk-vignette"></div><div class="sk-grain"></div>
           <div class="sk-body">
             <div class="sk-label"><span class="sk-pill">04 / 06</span> Зависимость</div>
             <h3>На поводке <em>у бизнеса.</em></h3>
@@ -552,31 +448,8 @@
         </div>
 
         <div class="sk-card" data-i="4">
-          <div class="sk-card-bg sk-bg-5">
-            <svg class="sk-art" viewBox="0 0 360 600" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-              <defs>
-                <radialGradient id="c5l" cx="55%" cy="45%" r="40%"><stop offset="0%" stop-color="#f5c26b" stop-opacity=".55"/><stop offset="100%" stop-color="#f5c26b" stop-opacity="0"/></radialGradient>
-                <linearGradient id="c5d" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#1a1308"/><stop offset="100%" stop-color="#06040f"/></linearGradient>
-              </defs>
-              <ellipse cx="200" cy="260" rx="230" ry="180" fill="url(#c5l)"/>
-              <rect x="0" y="360" width="360" height="240" fill="url(#c5d)"/>
-              <g stroke="rgba(255,255,255,.3)" stroke-width="2" fill="none"><path d="M40 360 L40 220 L120 160"/></g>
-              <path d="M100 140 L160 150 L150 190 L100 175 Z" fill="#1a1308" stroke="rgba(245,194,107,.7)" stroke-width="1.5"/>
-              <circle cx="125" cy="170" r="6" fill="#f5c26b"/>
-              <g fill="#1a1408" stroke="rgba(255,255,255,.15)" stroke-width=".8">
-                <polygon points="50,400 88,392 105,420 96,440 60,438"/>
-                <polygon points="130,395 168,388 184,418 174,438 138,432"/>
-                <polygon points="210,402 248,395 262,420 252,442 218,438"/>
-                <polygon points="285,395 320,390 332,415 322,438 290,432"/>
-              </g>
-              <g fill="#06040f">
-                <ellipse cx="200" cy="340" rx="55" ry="40"/><circle cx="200" cy="285" r="30"/>
-                <path d="M170 290 Q155 260 168 240 L185 270 Z"/>
-                <path d="M230 290 Q245 260 232 240 L215 270 Z"/>
-              </g>
-            </svg>
-            <div class="sk-vignette"></div><div class="sk-grain"></div>
-          </div>
+          <img class="sk-photo" src="images/card5.png" alt="">
+          <div class="sk-vignette"></div><div class="sk-grain"></div>
           <div class="sk-body">
             <div class="sk-label"><span class="sk-pill">05 / 06</span> Формат</div>
             <h3>Новый формат — <em>каждый месяц.</em></h3>
@@ -585,32 +458,8 @@
         </div>
 
         <div class="sk-card" data-i="5">
-          <div class="sk-card-bg sk-bg-6">
-            <svg class="sk-art" viewBox="0 0 360 600" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-              <defs>
-                <linearGradient id="c6s" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#1a1238"/><stop offset="45%" stop-color="#7c4dff" stop-opacity=".55"/><stop offset="75%" stop-color="#f5c26b" stop-opacity=".5"/><stop offset="100%" stop-color="#3ee0c8" stop-opacity=".35"/></linearGradient>
-                <linearGradient id="c6g" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#3ee0c8" stop-opacity=".25"/><stop offset="100%" stop-color="#06040f"/></linearGradient>
-                <radialGradient id="c6o" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#fff"/><stop offset="40%" stop-color="#f5c26b"/><stop offset="100%" stop-color="#7c4dff" stop-opacity="0"/></radialGradient>
-                <radialGradient id="c6n" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#f5c26b"/><stop offset="100%" stop-color="#f5c26b" stop-opacity="0"/></radialGradient>
-              </defs>
-              <rect width="360" height="380" fill="url(#c6s)"/>
-              <circle cx="260" cy="300" r="60" fill="url(#c6n)"/>
-              <circle cx="260" cy="300" r="22" fill="#f5c26b"/>
-              <rect x="0" y="370" width="360" height="40" fill="#0d1530" opacity=".7"/>
-              <path d="M0 410 L360 410 L360 600 L0 600 Z" fill="url(#c6g)"/>
-              <g fill="#06040f"><ellipse cx="170" cy="492" rx="110" ry="18"/><circle cx="75" cy="472" r="18"/></g>
-              <g>
-                <circle cx="130" cy="380" r="52" fill="url(#c6o)" opacity=".55"/>
-                <circle cx="130" cy="380" r="22" fill="#fff" opacity=".95"/>
-                <text x="130" y="385" text-anchor="middle" font-family="Inter,sans-serif" font-weight="800" font-size="18" fill="#06040f">∞</text>
-              </g>
-              <g fill="#f5c26b">
-                <circle cx="110" cy="460" r="4" opacity=".9"/><circle cx="125" cy="440" r="3" opacity=".85"/>
-                <circle cx="118" cy="420" r="3.5" opacity=".9"/><circle cx="132" cy="405" r="4" opacity=".95"/>
-              </g>
-            </svg>
-            <div class="sk-vignette"></div><div class="sk-grain"></div>
-          </div>
+          <img class="sk-photo" src="images/card6.png" alt="">
+          <div class="sk-vignette"></div><div class="sk-grain"></div>
           <div class="sk-body">
             <div class="sk-label"><span class="sk-pill">06 / 06</span> Тишина</div>
             <h3>Доход <em>без запусков.</em></h3>
@@ -620,7 +469,6 @@
 
       </div><!-- /sk-stage -->
 
-      <div class="sk-dots" id="skDots"></div>
     </div><!-- /sk-pin -->
   </section>
 
@@ -628,28 +476,15 @@
   (() => {
     const section = document.getElementById('skSection');
     const cards = [...document.querySelectorAll('.sk-card')];
-    const dotsEl = document.getElementById('skDots');
-    const N = cards.length;
 
-    // build dots
-    cards.forEach(() => {
-      const d = document.createElement('div');
-      d.className = 'sk-dot';
-      dotsEl.appendChild(d);
-    });
-
-    const STEP = 0.65;  // vh fraction per card step
-    const ANIM = 0.28;  // vh fraction for rise animation
-
-    let lastActive = -1;
+    const STEP = 0.85;  // vh fraction per card step (30% slower)
+    const ANIM = 0.36;  // vh fraction for rise animation
 
     function update() {
       const scrolled = Math.max(0, -section.getBoundingClientRect().top);
       const vh = window.innerHeight;
       const stepPx = vh * STEP;
       const animPx = vh * ANIM;
-
-      let activeIdx = 0;
 
       cards.forEach((card, i) => {
         let progress;
@@ -659,17 +494,8 @@
           const start = i * stepPx - animPx;
           progress = Math.max(0, Math.min(1, (scrolled - start) / animPx));
         }
-
-        const ty = (1 - progress) * 110;
-        card.style.transform = `translateY(${ty.toFixed(2)}%)`;
-
-        if (progress >= 0.5) activeIdx = i;
+        card.style.transform = `translateY(${((1 - progress) * 110).toFixed(2)}%)`;
       });
-
-      if (activeIdx !== lastActive) {
-        lastActive = activeIdx;
-        [...dotsEl.children].forEach((d, i) => d.classList.toggle('on', i === activeIdx));
-      }
     }
 
     window.addEventListener('scroll', update, { passive: true });
