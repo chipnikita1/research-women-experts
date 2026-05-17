@@ -209,8 +209,8 @@
 
     /* ── STICKY STACK ── */
     .sk-section {
-      /* 100vh sticky area + 5 card steps * 85vh + 85vh end pause */
-      height: 610vh;
+      /* 100vh sticky area + 5 card steps * 90vh + 90vh end pause */
+      height: 640vh;
       background: #000;
     }
 
@@ -264,12 +264,14 @@
       position: absolute;
       top: 0; bottom: 0;
       left: 0; right: 0;
-      width: 100%;
-      border-radius: 0;
+      margin: 0 auto;
+      width: min(320px, 88vw);
+      border-radius: 24px;
       overflow: hidden;
       will-change: transform;
       transform: translateY(110%);
-      box-shadow: 0 -12px 60px rgba(0,0,0,.8);
+      transition: transform 0.12s ease-out;
+      box-shadow: 0 -14px 50px rgba(0,0,0,.75);
     }
     .sk-card[data-i="0"] { transform: translateY(0%); }
 
@@ -302,7 +304,7 @@
     .sk-body {
       position: absolute;
       bottom: 0; left: 0; right: 0;
-      padding: 22px 20px 28px;
+      padding: 22px 20px 56px;
       z-index: 2;
     }
     .sk-label {
@@ -477,8 +479,10 @@
     const section = document.getElementById('skSection');
     const cards = [...document.querySelectorAll('.sk-card')];
 
-    const STEP = 0.85;  // vh fraction per card step (30% slower)
-    const ANIM = 0.36;  // vh fraction for rise animation
+    const STEP = 0.9;   // vh fraction per card step
+    const ANIM = 0.45;  // vh fraction for rise animation
+
+    let rafId = null;
 
     function update() {
       const scrolled = Math.max(0, -section.getBoundingClientRect().top);
@@ -486,19 +490,39 @@
       const stepPx = vh * STEP;
       const animPx = vh * ANIM;
 
+      // progress per card
+      const progresses = cards.map((_, i) => {
+        if (i === 0) return 1;
+        const start = i * stepPx - animPx;
+        return Math.max(0, Math.min(1, (scrolled - start) / animPx));
+      });
+
+      // next card to rise (first with progress < 1, skip card 0)
+      const nextIdx = progresses.findIndex((p, i) => i > 0 && p < 1);
+
       cards.forEach((card, i) => {
-        let progress;
-        if (i === 0) {
-          progress = 1;
+        const p = progresses[i];
+        let ty;
+        if (p > 0) {
+          // rising or fully risen: animate from 92% → 0%
+          ty = (1 - p) * 92;
+        } else if (i === nextIdx) {
+          // peek: next card shows ~8% from bottom
+          ty = 92;
         } else {
-          const start = i * stepPx - animPx;
-          progress = Math.max(0, Math.min(1, (scrolled - start) / animPx));
+          // hidden below
+          ty = 110;
         }
-        card.style.transform = `translateY(${((1 - progress) * 110).toFixed(2)}%)`;
+        card.style.transform = `translateY(${ty.toFixed(2)}%)`;
       });
     }
 
-    window.addEventListener('scroll', update, { passive: true });
+    function onScroll() {
+      if (rafId) cancelAnimationFrame(rafId);
+      rafId = requestAnimationFrame(update);
+    }
+
+    window.addEventListener('scroll', onScroll, { passive: true });
     window.addEventListener('resize', update, { passive: true });
     update();
   })();
