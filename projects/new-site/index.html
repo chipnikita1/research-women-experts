@@ -3,7 +3,19 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Site</title>
+  <meta name="theme-color" content="#000000">
+  <title>Women's Business Club — пассивный доход от своего клуба</title>
+  <meta name="description" content="Создайте сообщество единомышленников и получайте стабильный доход каждый месяц. Клуб на автопилоте — автоматическая ежемесячная оплата без ручного контроля.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Women's Business Club">
+  <meta property="og:description" content="Создайте свое сообщество и получайте стабильный доход каждый месяц">
+  <meta property="og:image" content="/images/women-business.webp">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💎</text></svg>">
+  <link rel="preload" as="image" href="images/photo1.webp" fetchpriority="high">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Pinyon+Script&display=swap" rel="stylesheet">
   <style>
     @font-face {
       font-family: 'Inter';
@@ -52,6 +64,56 @@
     * { margin: 0; padding: 0; box-sizing: border-box; }
     html, body { background: #000; }
     html { overflow-x: hidden; }
+    body { overflow-x: clip; }
+
+    /* ── DESKTOP BLOCK ── */
+    .desktop-block {
+      display: none;
+    }
+    @media (min-width: 768px) {
+      .desktop-block {
+        display: flex;
+        position: fixed;
+        inset: 0;
+        z-index: 9999;
+        align-items: center;
+        justify-content: center;
+        background: #000;
+      }
+      .desktop-block img {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center top;
+        filter: brightness(0.45);
+      }
+      .desktop-block-text {
+        position: relative;
+        z-index: 2;
+        text-align: center;
+        padding: 0 40px;
+      }
+      .desktop-block-text h2 {
+        font-family: 'Inter', sans-serif;
+        font-weight: 900;
+        font-size: clamp(2rem, 4vw, 3.5rem);
+        color: #fff;
+        letter-spacing: -0.02em;
+        line-height: 1.15;
+        margin-bottom: 16px;
+      }
+      .desktop-block-text p {
+        font-family: 'GoogleSans', sans-serif;
+        font-weight: 400;
+        font-size: clamp(1rem, 1.8vw, 1.3rem);
+        color: rgba(255,255,255,0.65);
+      }
+      body > *:not(.desktop-block) {
+        display: none !important;
+      }
+    }
 
     .photo-wrap {
       position: relative;
@@ -59,6 +121,7 @@
     }
     .photo-wrap img {
       width: 100%;
+      height: auto;
       display: block;
     }
     .img-scale {
@@ -167,7 +230,7 @@
     }
 
     .card-sub {
-      font-family: 'MontserratThin', sans-serif;
+      font-family: 'GoogleSans', sans-serif;
       font-weight: 100;
       font-size: clamp(0.59rem, 2.4vw, 0.74rem);
       color: #fff;
@@ -209,8 +272,8 @@
 
     /* ── STICKY STACK ── */
     .sk-section {
-      /* 100vh sticky area + 5 card steps * 90vh + 90vh end pause */
-      height: 640vh;
+      /* sticky scroll area for 6-card stack — tuned for current STEP/ANIM values */
+      height: 550vh;
       background: #000;
     }
 
@@ -222,7 +285,7 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      padding-bottom: 20px;
+      padding-bottom: 8px;
     }
 
     .sk-heading {
@@ -230,6 +293,9 @@
       padding: 32px 24px 14px;
       flex-shrink: 0;
       width: 100%;
+      position: relative;
+      z-index: 10;
+      background: linear-gradient(to bottom, #000 0%, #000 60%, transparent 100%);
     }
 
     .sk-title {
@@ -247,9 +313,9 @@
       flex: 1;
       position: relative;
       width: 100%;
+      /* cap card height on tall screens — 420px makes cards more square */
+      max-height: min(420px, 54vh);
       overflow: hidden;
-      /* cap card height on tall screens */
-      max-height: 580px;
     }
 
     /* card backgrounds */
@@ -271,7 +337,11 @@
       will-change: transform;
       transform: translateY(110%);
       transition: transform 0.12s ease-out;
-      box-shadow: 0 -14px 50px rgba(0,0,0,.75);
+      box-shadow:
+        0 -14px 50px rgba(0,0,0,.75),
+        0 0 0 1px rgba(28,247,251,0.18),
+        0 0 22px rgba(28,247,251,0.18),
+        0 0 50px rgba(28,247,251,0.07);
     }
     .sk-card[data-i="0"] { transform: translateY(0%); }
 
@@ -342,6 +412,177 @@
     .sk-copy b { color: #fff; font-weight: 500; }
 
 
+    /* ── AUTOPILOT SECTION ── */
+    .ap-section {
+      background: #000;
+      position: relative;
+      z-index: 5;
+    }
+
+    .ap-container {
+      position: relative;
+      width: 100%;
+      overflow: hidden;
+      min-height: 520px;
+      background: linear-gradient(160deg, #003a45 0%, #001520 60%, #000 100%);
+    }
+
+    .ap-bg {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .ap-text {
+      position: absolute;
+      bottom: 10%;
+      left: 0;
+      width: 33%;
+      padding: 0 6px 0 16px;
+      z-index: 2;
+    }
+
+    .ap-title {
+      font-family: 'Inter', sans-serif;
+      font-weight: 900;
+      font-size: clamp(1.4rem, 4.8vw, 2.6rem);
+      color: #fff;
+      line-height: 1.0;
+      letter-spacing: -0.02em;
+      margin-bottom: 12px;
+    }
+
+    .ap-sub {
+      font-family: 'GoogleSans', sans-serif;
+      font-weight: 400;
+      font-size: clamp(0.78rem, 2.2vw, 0.95rem);
+      color: rgba(255,255,255,0.75);
+      line-height: 1.55;
+      margin-bottom: 48px;
+    }
+
+    .ap-btn {
+      display: block;
+      width: 100%;
+      padding: 14px 18px;
+      border-radius: 12px;
+      border: 1.5px solid rgba(255,255,255,0.45);
+      background: rgba(255,255,255,0.08);
+      backdrop-filter: blur(8px);
+      font-family: 'Inter', sans-serif;
+      font-weight: 700;
+      font-size: clamp(0.72rem, 1.9vw, 0.82rem);
+      color: #fff;
+      text-transform: uppercase;
+      letter-spacing: 0.01em;
+      text-decoration: none;
+      cursor: pointer;
+      text-align: center;
+    }
+
+    /* floating pills */
+    .ap-pill {
+      position: absolute;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 13px 6px 10px;
+      background: rgba(8, 8, 20, 0.72);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border: 1px solid rgba(255,255,255,0.22);
+      border-radius: 999px;
+      font-family: 'GoogleSans', sans-serif;
+      font-size: clamp(10px, 2.65vw, 13.5px);
+      font-weight: 500;
+      color: #fff;
+      white-space: nowrap;
+      z-index: 3;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+      padding: 7px 15px 7px 11px;
+    }
+
+    /* stagger across upper women area — desktop */
+    .ap-pill-1 { top: 30%; left: 3%;   }
+    .ap-pill-2 { top: 20%; left: 26%;  }
+    .ap-pill-3 { top: calc(27% - 20px); left: 52%;             }
+    .ap-pill-4 { top: 32%;             right: calc(3% - 10px); }
+
+    /* mobile CTA button hidden on desktop */
+    .ap-mobile-cta { display: none; }
+
+    /* ── MOBILE ── */
+    @media (max-width: 600px) {
+      .ap-container {
+        min-height: unset;
+        overflow: hidden;
+        background: none;
+      }
+
+      /* dark gradient covers full left column */
+      .ap-container::before {
+        content: '';
+        position: absolute;
+        top: 0; left: 0;
+        width: 50%; height: 100%;
+        background:
+          linear-gradient(to right, rgba(0,10,20,0.85) 0%, transparent 100%),
+          linear-gradient(to top,   rgba(0,10,20,0.7) 0%, transparent 50%);
+        z-index: 1;
+        pointer-events: none;
+      }
+
+      /* text overlaid on image, left of phone */
+      .ap-text {
+        position: absolute;
+        top: 48%;
+        bottom: 8%;
+        left: 0;
+        width: 50%;
+        padding: 0 15px 0 14px;
+        z-index: 2;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+      }
+
+      .ap-title {
+        font-size: clamp(0.95rem, 4.8vw, 1.2rem);
+        margin-bottom: 18px;
+      }
+
+      .ap-sub {
+        font-size: clamp(0.88rem, 3.2vw, 1rem);
+        margin-bottom: 0;
+        line-height: 1.45;
+        max-width: 13ch;
+      }
+
+      /* desktop button hidden on mobile */
+      .ap-btn-desktop { display: none; }
+
+      /* mobile button below image */
+      .ap-mobile-cta {
+        display: block;
+        background: #000;
+        padding: 29px 31px 39px;
+      }
+      .ap-mobile-cta .ap-btn {
+        display: block;
+        width: 100%;
+      }
+
+      /* pills: same area as before, slightly smaller */
+      .ap-pill {
+        font-size: 9px !important;
+        padding: 4px 9px 4px 7px !important;
+      }
+      .ap-pill-1 { top: 42vw; left: 2%;  }
+      .ap-pill-2 { top: 33vw; left: 14%; }
+      .ap-pill-3 { top: 25vw; left: 44%; }
+      .ap-pill-4 { top: 35vw; right: 2%; }
+    }
+
     .btn {
       display: block;
       width: 100%;
@@ -360,12 +601,362 @@
       text-decoration: none;
       text-align: center;
     }
+
+    /* ── WOMEN'S BUSINESS CLUB ── */
+    .wbc-section {
+      position: relative;
+      background: #000;
+      overflow: hidden;
+      /* original photo 864x1821, crop ~25% top + 20% bottom => 864x984 (10% shorter) */
+      aspect-ratio: 864 / 984;
+    }
+
+    .wbc-img {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    .wbc-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to bottom,
+        rgba(0,0,0,0.55) 0%,
+        transparent 18%,
+        transparent 38%,
+        rgba(0,0,0,0.2) 52%,
+        rgba(0,0,0,0.6) 72%,
+        rgba(0,0,0,1) 100%
+      );
+      z-index: 1;
+    }
+
+    .wbc-text {
+      position: absolute;
+      top: calc(52% + 35px);
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      width: 100%;
+      padding: 0 16px;
+      z-index: 2;
+    }
+
+    .wbc-script {
+      display: block;
+      font-family: 'Pinyon Script', cursive;
+      font-size: clamp(4.5rem, 22vw, 10rem);
+      color: #f0ddb0;
+      line-height: 0.95;
+      margin-bottom: 6px;
+      text-shadow: 0 2px 24px rgba(0,0,0,0.5);
+    }
+
+    .wbc-title {
+      font-family: 'Inter', sans-serif;
+      font-weight: 900;
+      font-size: clamp(1rem, 5vw, 2.2rem);
+      color: #fff;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      margin: 0 0 14px;
+      text-shadow: 0 2px 12px rgba(0,0,0,0.6);
+    }
+
+    .wbc-sub {
+      font-family: 'GoogleSans', sans-serif;
+      font-weight: 400;
+      font-size: clamp(0.72rem, 3.4vw, 0.9rem);
+      color: rgba(255,255,255,0.8);
+      line-height: 1.55;
+      margin: 0 auto;
+      max-width: 270px;
+      text-shadow: 0 1px 8px rgba(0,0,0,0.7);
+    }
+
+    /* ── CONVEYOR SECTION ── */
+    .cv-section {
+      position: relative;
+      background: #000;
+      overflow: hidden;
+    }
+    .cv-img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    .cv-section::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 8%;
+      background: linear-gradient(to bottom, rgba(0,0,0,1) 0%, transparent 100%);
+      z-index: 1;
+      pointer-events: none;
+    }
+    .cv-section::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 35%;
+      background: linear-gradient(to top, rgba(0,0,0,1) 0%, transparent 100%);
+      z-index: 1;
+      pointer-events: none;
+    }
+    .cv-label {
+      position: absolute;
+      z-index: 2;
+      font-family: 'Inter', sans-serif;
+      font-weight: 700;
+      font-size: clamp(0.78rem, 3.6vw, 0.98rem);
+      color: #fff;
+      line-height: 1.35;
+      letter-spacing: 0.02em;
+      text-shadow: 0 2px 12px rgba(0,0,0,0.85);
+      text-transform: uppercase;
+    }
+    .cv-label-top {
+      top: 12%;
+      right: calc(5% - 10px);
+      width: 52%;
+      text-align: left;
+    }
+    .cv-label-bottom {
+      bottom: calc(14% + 10px);
+      left: calc(4% + 10px);
+      width: 52%;
+      text-align: left;
+    }
+
+    /* ── CALCULATOR ── */
+    .calc-section {
+      position: relative;
+      padding: 56px 22px 60px;
+      background:
+        linear-gradient(to bottom, #000 0%, transparent 18%),
+        radial-gradient(120% 70% at 50% 0%, #0a1a2e 0%, #000 65%);
+      text-align: center;
+    }
+
+    /* ── CTA TO CALCULATOR (inside sticky pin) ── */
+    .sk-cta-wrap {
+      flex-shrink: 0;
+      width: 100%;
+      padding: 14px 22px 0;
+      display: flex;
+      justify-content: center;
+      margin-top: auto;
+      margin-bottom: auto;
+      position: relative;
+      z-index: 50;
+    }
+    .cta-calc-btn {
+      display: block;
+      width: min(320px, 88vw);
+      padding: 17px 24px;
+      border-radius: 12px;
+      background: #1cf7fb;
+      color: #000;
+      font-family: 'Inter', sans-serif;
+      font-weight: 900;
+      font-size: clamp(0.86rem, 2.6vw, 1rem);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      text-decoration: none;
+      text-align: center;
+    }
+
+    .calc-eyebrow {
+      font-family: 'Inter', sans-serif;
+      font-weight: 700;
+      font-size: 11px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: #1cf7fb;
+      margin-bottom: 14px;
+    }
+
+    .calc-title {
+      font-family: 'Inter', sans-serif;
+      font-weight: 900;
+      font-size: clamp(1.45rem, 5.6vw, 2.2rem);
+      color: #fff;
+      letter-spacing: -0.02em;
+      line-height: 1.15;
+      margin: 0 0 12px;
+      max-width: 340px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .calc-title em {
+      font-family: 'Playfair', serif;
+      font-style: italic;
+      font-weight: 400;
+      color: #1cf7fb;
+    }
+
+    .calc-sub {
+      font-family: 'GoogleSans', sans-serif;
+      font-size: clamp(0.78rem, 2.3vw, 0.92rem);
+      color: rgba(255,255,255,0.62);
+      line-height: 1.5;
+      margin: 0 auto 30px;
+      max-width: 310px;
+    }
+
+    .calc-controls {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      margin-bottom: 28px;
+    }
+
+    .calc-row {
+      text-align: left;
+    }
+
+    .calc-row-head {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      margin-bottom: 10px;
+    }
+
+    .calc-label {
+      font-family: 'GoogleSans', sans-serif;
+      font-size: 13px;
+      color: rgba(255,255,255,0.7);
+    }
+
+    .calc-display {
+      font-family: 'Inter', sans-serif;
+      font-weight: 700;
+      font-size: 18px;
+      color: #fff;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .calc-slider {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 100%;
+      height: 4px;
+      background: rgba(255,255,255,0.12);
+      border-radius: 4px;
+      outline: none;
+      margin: 0;
+    }
+    .calc-slider::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: #1cf7fb;
+      cursor: pointer;
+      box-shadow: 0 0 18px rgba(28,247,251,0.55);
+      border: 3px solid #06121f;
+    }
+    .calc-slider::-moz-range-thumb {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: #1cf7fb;
+      cursor: pointer;
+      border: 3px solid #06121f;
+      box-shadow: 0 0 18px rgba(28,247,251,0.55);
+    }
+
+    .calc-result {
+      position: relative;
+      background: linear-gradient(180deg, rgba(28,247,251,0.10) 0%, rgba(28,247,251,0.02) 100%);
+      border: 1px solid rgba(28,247,251,0.28);
+      border-radius: 24px;
+      padding: 26px 22px 28px;
+      margin-bottom: 22px;
+    }
+
+    .calc-result-label {
+      font-family: 'GoogleSans', sans-serif;
+      font-size: 11px;
+      color: rgba(255,255,255,0.55);
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      margin-bottom: 8px;
+    }
+
+    .calc-result-amount {
+      font-family: 'Inter', sans-serif;
+      font-weight: 900;
+      font-size: clamp(2.4rem, 11vw, 3.6rem);
+      color: #1cf7fb;
+      letter-spacing: -0.03em;
+      line-height: 1;
+      margin: 0 0 6px;
+      font-variant-numeric: tabular-nums;
+      text-shadow: 0 0 36px rgba(28,247,251,0.35);
+    }
+
+    .calc-result-period {
+      font-family: 'GoogleSans', sans-serif;
+      font-size: 13px;
+      color: rgba(255,255,255,0.68);
+      margin: 0 0 12px;
+    }
+
+    .calc-result-year {
+      font-family: 'Inter', sans-serif;
+      font-weight: 600;
+      font-size: 14px;
+      color: rgba(255,255,255,0.78);
+      padding-top: 12px;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      font-variant-numeric: tabular-nums;
+    }
+    .calc-result-year span { color: #fff; font-weight: 700; }
+
+    .calc-note {
+      font-family: 'GoogleSans', sans-serif;
+      font-size: 11px;
+      color: rgba(255,255,255,0.45);
+      line-height: 1.5;
+      margin: 0 auto 22px;
+      max-width: 290px;
+    }
+
+    .calc-cta {
+      display: block;
+      width: 100%;
+      padding: 17px 24px;
+      border-radius: 12px;
+      border: 1px solid #1cf7fb;
+      background: #1cf7fb;
+      color: #000;
+      font-family: 'Inter', sans-serif;
+      font-weight: 900;
+      font-size: clamp(0.86rem, 2.6vw, 1rem);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      text-decoration: none;
+      text-align: center;
+    }
   </style>
 </head>
 <body>
 
+  <div class="desktop-block">
+    <img src="images/photo1.webp" width="1210" height="1280" decoding="async" alt="">
+    <div class="desktop-block-text">
+      <h2>Открой с телефона</h2>
+      <p>Этот сайт создан для мобильных устройств</p>
+    </div>
+  </div>
+
   <div class="photo-wrap">
-    <div class="img-scale"><img src="images/photo1.jpg" alt=""></div>
+    <div class="img-scale"><img src="images/photo1.webp" alt="Эксперт за ноутбуком ночью — теряете деньги прямо сейчас" width="1210" height="1280" decoding="async" loading="eager" fetchpriority="high"></div>
     <div class="offer-section">
       <p class="offer-headline">
         Модель продуктов по подписке, которую не используют 70% экспертов — теряя <span class="accent">3 000–10 000$</span> пассивного дохода ежемесячно
@@ -381,7 +972,7 @@
   </div>
 
   <div class="photo-wrap">
-    <img src="images/photo2.png" alt="">
+    <img src="images/photo2.webp" alt="Эксперт с телефоном — единый продукт" width="1024" height="1536" decoding="async" loading="lazy">
     <svg class="glow-dot" viewBox="0 0 65 65" xmlns="http://www.w3.org/2000/svg">
       <circle cx="32.5" cy="32.5" r="32.5" fill="#1cf7fb"/>
       <text x="32.5" y="24" font-size="10" fill="#000" font-weight="700" text-anchor="middle" font-family="Inter, sans-serif">Каждый</text>
@@ -391,7 +982,7 @@
   </div>
 
   <div class="photo-wrap">
-    <div class="img-scale-20"><img src="images/photo3.jpg" alt=""></div>
+    <div class="img-scale-20"><img src="images/photo3.webp" alt="Эксперт у окна — пассивный доход" width="1214" height="1295" decoding="async" loading="lazy"></div>
     <div class="card-overlay">
       <div class="card-top">
         <p class="card-title">ДОХОД УВЕЛИЧИВАЕТСЯ</p>
@@ -410,7 +1001,7 @@
       <div class="sk-stage">
 
         <div class="sk-card" data-i="0">
-          <img class="sk-photo" src="images/card1.png" alt="">
+          <img class="sk-photo" src="images/card1.webp" alt="Аудитория клуба" width="1537" height="1023" decoding="async" loading="lazy">
           <div class="sk-vignette"></div><div class="sk-grain"></div>
           <div class="sk-body">
             <div class="sk-label"><span class="sk-pill">01 / 06</span> Аудитория</div>
@@ -420,7 +1011,7 @@
         </div>
 
         <div class="sk-card" data-i="1">
-          <img class="sk-photo" src="images/card2.png" alt="">
+          <img class="sk-photo" src="images/card2.webp" alt="Повторение в продажах" width="1537" height="1023" decoding="async" loading="lazy">
           <div class="sk-vignette"></div><div class="sk-grain"></div>
           <div class="sk-body">
             <div class="sk-label"><span class="sk-pill">02 / 06</span> Повторение</div>
@@ -430,7 +1021,7 @@
         </div>
 
         <div class="sk-card" data-i="2">
-          <img class="sk-photo" src="images/card3.png" alt="">
+          <img class="sk-photo" src="images/card3.webp" alt="Развилка — пассивный доход возможен" width="1536" height="1024" decoding="async" loading="lazy">
           <div class="sk-vignette"></div><div class="sk-grain"></div>
           <div class="sk-body">
             <div class="sk-label"><span class="sk-pill">03 / 06</span> Развилка</div>
@@ -440,7 +1031,7 @@
         </div>
 
         <div class="sk-card" data-i="3">
-          <img class="sk-photo" src="images/card4.png" alt="">
+          <img class="sk-photo" src="images/card4.webp" alt="Боль эксперта" width="1672" height="941" decoding="async" loading="lazy">
           <div class="sk-vignette"></div><div class="sk-grain"></div>
           <div class="sk-body">
             <div class="sk-label"><span class="sk-pill">04 / 06</span> Зависимость</div>
@@ -450,7 +1041,7 @@
         </div>
 
         <div class="sk-card" data-i="4">
-          <img class="sk-photo" src="images/card5.png" alt="">
+          <img class="sk-photo" src="images/card5.webp" alt="Решение" width="1536" height="1024" decoding="async" loading="lazy">
           <div class="sk-vignette"></div><div class="sk-grain"></div>
           <div class="sk-body">
             <div class="sk-label"><span class="sk-pill">05 / 06</span> Формат</div>
@@ -460,7 +1051,7 @@
         </div>
 
         <div class="sk-card" data-i="5">
-          <img class="sk-photo" src="images/card6.png" alt="">
+          <img class="sk-photo" src="images/card6.webp" alt="Результат" width="1717" height="916" decoding="async" loading="lazy">
           <div class="sk-vignette"></div><div class="sk-grain"></div>
           <div class="sk-body">
             <div class="sk-label"><span class="sk-pill">06 / 06</span> Тишина</div>
@@ -471,7 +1062,89 @@
 
       </div><!-- /sk-stage -->
 
+      <div class="sk-cta-wrap">
+        <a class="cta-calc-btn" href="#calc">Сколько я теряю</a>
+      </div>
     </div><!-- /sk-pin -->
+  </section>
+
+  <!-- ── AUTOPILOT SECTION ── -->
+  <section class="ap-section">
+    <div class="ap-container">
+      <img class="ap-bg" src="images/women-pills.webp" alt="Девушки с телефонами — клуб на автопилоте" width="1122" height="1402" decoding="async" loading="lazy">
+
+      <div class="ap-pill ap-pill-1">🔄 Автосписание</div>
+      <div class="ap-pill ap-pill-2">🤖 Бот принимает оплату</div>
+      <div class="ap-pill ap-pill-3">📲 Доступ выдаётся сам</div>
+      <div class="ap-pill ap-pill-4">💰 Доход каждый месяц</div>
+
+      <div class="ap-text">
+        <h2 class="ap-title">КЛУБ НА АВТОПИЛОТЕ</h2>
+        <p class="ap-sub">Подключаем автоматическую ежемесячную оплату для твоего клуба, курса или сообщества. Без ручного контроля.</p>
+        <a class="ap-btn ap-btn-desktop" href="#">Как это работает</a>
+      </div>
+    </div>
+    <div class="ap-mobile-cta">
+      <a class="ap-btn" href="#">Как это работает</a>
+    </div>
+  </section>
+
+  <section class="wbc-section">
+    <img class="wbc-img" src="images/women-business.webp" alt="Women's Business Club — пять женщин" width="864" height="1821" decoding="async" loading="lazy">
+    <div class="wbc-overlay"></div>
+    <div class="wbc-text">
+      <span class="wbc-script">Women's</span>
+      <h2 class="wbc-title">Business Club</h2>
+      <p class="wbc-sub">Создайте свое сообщество единомышленников и получайте стабильный доход каждый месяц</p>
+    </div>
+  </section>
+
+  <section class="cv-section">
+    <img class="cv-img" src="images/conveyor.webp" alt="Конвейер: подписчики превращаются в стабильный доход" width="1086" height="1448" decoding="async" loading="lazy">
+    <p class="cv-label cv-label-top">Расширяйте базу и увеличивайте месячный доход</p>
+    <p class="cv-label cv-label-bottom">Один раз приводите клиента — и он платит каждый месяц</p>
+  </section>
+
+  <section class="calc-section" id="calc">
+    <h2 class="calc-title">Сколько денег <em>проходит мимо</em> прямо сейчас</h2>
+    <p class="calc-sub">Подвигай ползунки — увидишь свой реальный недополученный доход</p>
+
+    <div class="calc-controls">
+      <div class="calc-row">
+        <div class="calc-row-head">
+          <label class="calc-label" for="calc-clients">Количество участников</label>
+          <span class="calc-display" id="calc-clients-display">500</span>
+        </div>
+        <input class="calc-slider" type="range" id="calc-clients" min="50" max="3000" step="10" value="500">
+      </div>
+
+      <div class="calc-row">
+        <div class="calc-row-head">
+          <label class="calc-label" for="calc-check">Месячный чек подписки</label>
+          <span class="calc-display" id="calc-check-display">$50</span>
+        </div>
+        <input class="calc-slider" type="range" id="calc-check" min="10" max="200" step="5" value="50">
+      </div>
+
+      <div class="calc-row">
+        <div class="calc-row-head">
+          <label class="calc-label" for="calc-conv">Останутся в клубе</label>
+          <span class="calc-display" id="calc-conv-display">30%</span>
+        </div>
+        <input class="calc-slider" type="range" id="calc-conv" min="5" max="100" step="1" value="30">
+      </div>
+    </div>
+
+    <div class="calc-result">
+      <p class="calc-result-label">Закопанный доход</p>
+      <p class="calc-result-amount" id="calc-monthly">$7 500</p>
+      <p class="calc-result-period">каждый месяц</p>
+      <p class="calc-result-year">за год: <span id="calc-yearly">$90 000</span></p>
+    </div>
+
+    <p class="calc-note">Это деньги, которые ты уже заработала на этих клиентах — но не забрала повторно</p>
+
+    <a class="calc-cta" href="#">Забрать эти деньги</a>
   </section>
 
   <script>
@@ -480,7 +1153,10 @@
     const cards = [...document.querySelectorAll('.sk-card')];
 
     const STEP = 0.9;   // vh fraction per card step
-    const ANIM = 0.45;  // vh fraction for rise animation
+    const ANIM = 0.6;   // vh fraction for rise animation (smoother)
+
+    // smoothstep: slow start, fast middle, slow end
+    function ease(t) { return t * t * (3 - 2 * t); }
 
     let rafId = null;
 
@@ -490,30 +1166,35 @@
       const stepPx = vh * STEP;
       const animPx = vh * ANIM;
 
-      // progress per card
       const progresses = cards.map((_, i) => {
         if (i === 0) return 1;
         const start = i * stepPx - animPx;
-        return Math.max(0, Math.min(1, (scrolled - start) / animPx));
+        const raw = Math.max(0, Math.min(1, (scrolled - start) / animPx));
+        return ease(raw);
       });
 
-      // next card to rise (first with progress < 1, skip card 0)
       const nextIdx = progresses.findIndex((p, i) => i > 0 && p < 1);
 
       cards.forEach((card, i) => {
         const p = progresses[i];
         let ty;
         if (p > 0) {
-          // rising or fully risen: animate from 92% → 0%
           ty = (1 - p) * 92;
         } else if (i === nextIdx) {
-          // peek: next card shows ~8% from bottom
           ty = 92;
         } else {
-          // hidden below
           ty = 110;
         }
         card.style.transform = `translateY(${ty.toFixed(2)}%)`;
+
+        // card 0 stays opaque always; rising cards fade in with progress
+        if (i === 0) {
+          card.style.opacity = '1';
+        } else if (p > 0) {
+          card.style.opacity = p.toFixed(3);
+        } else {
+          card.style.opacity = '0';
+        }
       });
     }
 
@@ -524,6 +1205,49 @@
 
     window.addEventListener('scroll', onScroll, { passive: true });
     window.addEventListener('resize', update, { passive: true });
+    update();
+  })();
+
+  // Calculator
+  (() => {
+    const clients = document.getElementById('calc-clients');
+    const check = document.getElementById('calc-check');
+    const conv = document.getElementById('calc-conv');
+    if (!clients) return;
+
+    const clientsOut = document.getElementById('calc-clients-display');
+    const checkOut = document.getElementById('calc-check-display');
+    const convOut = document.getElementById('calc-conv-display');
+    const monthlyOut = document.getElementById('calc-monthly');
+    const yearlyOut = document.getElementById('calc-yearly');
+
+    const fmtNum = n => Math.round(n).toLocaleString('ru-RU').replace(/,/g, ' ');
+    const fmtMoney = n => '$' + fmtNum(n);
+
+    function updateClientsStep() {
+      const v = parseInt(clients.value, 10);
+      clients.step = v >= 500 ? 50 : 10;
+    }
+
+    function update() {
+      updateClientsStep();
+      const c = parseInt(clients.value, 10);
+      const ch = parseInt(check.value, 10);
+      const cv = parseInt(conv.value, 10);
+      clientsOut.textContent = fmtNum(c);
+      checkOut.textContent = '$' + ch;
+      convOut.textContent = cv + '%';
+      const monthly = c * (cv / 100) * ch;
+      monthlyOut.textContent = fmtMoney(monthly);
+      yearlyOut.textContent = fmtMoney(monthly * 12);
+
+      // update slider track fill
+      [clients, check, conv].forEach(s => {
+        const pct = ((s.value - s.min) / (s.max - s.min)) * 100;
+        s.style.background = `linear-gradient(to right, #1cf7fb 0%, #1cf7fb ${pct}%, rgba(255,255,255,0.12) ${pct}%, rgba(255,255,255,0.12) 100%)`;
+      });
+    }
+    [clients, check, conv].forEach(el => el.addEventListener('input', update));
     update();
   })();
   </script>
